@@ -1,0 +1,714 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"[]>
+<html>
+  <head><link rel="shortcut icon" href="../favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="save" content="history" />
+    <title>GetOne2ManyTable Method </title>
+    <link rel="stylesheet" type="text/css" href="../styles/lightweight.css" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" />
+    <link rel="stylesheet" type="text/css" href="../styles/lw-code.css" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" />
+    <script type="text/javascript" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" src="../scripts/languageSelector.js"> </script>
+    <meta name="container" content="ZeraSystems.CodeNanite.Expansion" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" />
+    <meta name="file" content="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOne2ManyTable" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" />
+    <meta name="guid" content="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOne2ManyTable" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" />
+    <xml xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+      <MSHelp:Attr Name="AssetID" Value="M:ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOne2ManyTable(System.String)" />
+      <MSHelp:TOCTitle Title="GetOne2ManyTable Method " />
+      <MSHelp:RLTitle Title="ExpansionBase.GetOne2ManyTable Method  (ZeraSystems.CodeNanite.Expansion)" />
+      <MSHelp:Keyword Index="A" Term="M:ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOne2ManyTable(System.String)" />
+      <MSHelp:Keyword Index="A" Term="frlrfZeraSystemsCodeNaniteExpansionExpansionBaseClassGetOne2ManyTableTopic" />
+      <MSHelp:Keyword Index="K" Term="GetOne2ManyTable method" />
+      <MSHelp:Keyword Index="K" Term="ExpansionBase.GetOne2ManyTable method" />
+      <MSHelp:Keyword Index="F" Term="ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOne2ManyTable" />
+      <MSHelp:Attr Name="APIType" Value="Managed" />
+      <MSHelp:Attr Name="APILocation" Value="Expansion.dll" />
+      <MSHelp:Attr Name="APIName" Value="ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOne2ManyTable" />
+      <MSHelp:Attr Name="DevLang" Value="CSharp" />
+      <MSHelp:Attr Name="DevLang" Value="VB" />
+      <MSHelp:Attr Name="Locale" Value="en-us" />
+      <MSHelp:Attr Name="TopicType" Value="kbSyntax" />
+      <MSHelp:Attr Name="TopicType" Value="apiref" />
+      <MSHelp:Attr Name="Abstract" Value="Gets the 12M table." />
+      <MSHelp:Attr Name="AssemblyVersion" Value="" />
+    </xml>
+  <link rel="stylesheet" href="../TOC.css"><script type="text/javascript" src="../TOC.js"></script></head>
+  <body onload="javascript: Initialize('.aspx');" onresize="javascript: ResizeTree();">
+            <div id="TOCDiv" class="TOCDiv" style="width: 310px; float: left; position: relative; ">
+
+            <div id="divSearchOpts" class="SearchOpts" style="height: 95px; display: none;">
+                <div class="SearchOptsInner">
+                    <img class="TOCLink" onclick="javascript: ShowHideSearch(false);" src="../Close.png" height="24" width="24" alt="Hide Search" title="Hide Search" style="float: right;" />
+                    <span class="Title">Keyword(s) to search:</span>
+                </div>
+                <div class="SearchOptsInner">
+                    <input id="txtSearchText" type="text" style="width: 95.5%;" onkeypress="javascript: return OnSearchTextKeyPress(event);" />
+                </div>
+                <div class="SearchOptsInner">
+                    <input id="chkSortByTitle" type="checkbox" />&nbsp;Sort results by title
+                    <input type="button" value="Search" onclick="javascript: return PerformSearch();" style="float: right;" />
+                </div>
+            </div>
+
+            <div id="divIndexOpts" class="IndexOpts" style="height: 28px; display: none;">
+                <img class="TOCLink" onclick="javascript: ShowHideIndex(false);"
+                     src="../Close.png" height="24" width="24" alt="Hide Keyword Index" title="Hide Keyword Index" style="float: right;" />
+                <span class="Title">Keyword Index</span>
+            </div>
+
+            <div id="divNavOpts" class="NavOpts" style="height: 28px;">
+                <!--<img class="TOCLink" onclick="javascript: SyncTOC();" src="../SyncTOC.png"
+                     height="24" width="24" alt="Sync to TOC" title="Sync to TOC" />-->
+                <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(true);"
+                     src="../ExpandAll.png" height="24" width="24" alt="Expand all" title="Expand all" />
+                <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(false);"
+                     src="../CollapseAll.png" height="24" width="24" alt="Collapse all" title="Collapse all" />
+                <!--<img class="TOCLink" onclick="javascript: alert('Please make sure to use either Index.aspx or Index.php to enable the Keyword Index feature.');"
+                     src="../Index.png" height="24" width="24" alt="Keyword Index" title="Keyword Index" />-->
+                <img class="TOCLink" onclick="javascript: ShowHideSearch(true);"
+                     src="../Search.png" height="24" width="24" alt="Search" title="Search" />
+                <img class="TOCLink" onclick="javascript: ShowDirectLink();"
+                     src="../Link.png" height="24" width="24" alt="Get direct link to the displayed topic" title="Get direct link to the displayed topic" />
+                <a href="#" onclick="javascript: window.history.go(-1); return false;">
+                    <img class="TOCLink" style="float: right;"
+                         src="../Back.png" height="24" width="24" alt="Previous page" title="Previous page" />
+                </a>
+            </div>
+
+            <div class="Tree" id="divSearchResults" style="display: none;"
+                 onselectstart="javascript: return false;">
+            </div>
+
+            <div class="Tree" id="divIndexResults" style="display: none;"
+                 onselectstart="javascript: return false;">
+            </div>
+
+            <div class="Tree" id="divTree" onselectstart="javascript: return false;">
+              <div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="N-ZeraSystems.CodeNanite.Expansion.htm" target="_self">ZeraSystems.CodeNanite.Expansion Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-ZeraSystems.CodeNanite.Expansion.BaseHelper.htm" target="_self">BaseHelper Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-ZeraSystems.CodeNanite.Expansion.BaseHelper.htm" target="_self">BaseHelper Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.BaseHelper.-ctor.htm" target="_self">BaseHelper Constructor </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-ZeraSystems.CodeNanite.Expansion.Constants.htm" target="_self">Constants Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-ZeraSystems.CodeNanite.Expansion.Constants.htm" target="_self">Constants Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-ZeraSystems.CodeNanite.Expansion.Constants.htm" target="_self">Constants Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.AspActionCreate.htm" target="_self">AspActionCreate Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.AspActionEdit.htm" target="_self">AspActionEdit Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivColMd4.htm" target="_self">AspDivColMd4 Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivEndTag.htm" target="_self">AspDivEndTag Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivFormGroup.htm" target="_self">AspDivFormGroup Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivRow.htm" target="_self">AspDivRow Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivStartTag.htm" target="_self">AspDivStartTag Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.AspValidateModelOnly.htm" target="_self">AspValidateModelOnly Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.KeySuffix.htm" target="_self">KeySuffix Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.ManyToMany.htm" target="_self">ManyToMany Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.ManyToOne.htm" target="_self">ManyToOne Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.OneToMany.htm" target="_self">OneToMany Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.OneToOne.htm" target="_self">OneToOne Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.StrLineFeed.htm" target="_self">StrLineFeed Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.TypeSizeImage.htm" target="_self">TypeSizeImage Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.TypeSizeNtext.htm" target="_self">TypeSizeNtext Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.Constants.TypeSizeText.htm" target="_self">TypeSizeText Field</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" target="_self">ExpansionBase Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" target="_self">ExpansionBase Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" target="_self">ExpansionBase Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.ExpandedText.htm" target="_self">ExpandedText Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" target="_self">ExpansionBase Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AddQuotes.htm" target="_self">AddQuotes Method </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AppendText.htm" target="_self">AppendText Method </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AppendText.htm" target="_self">AppendText Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AppendText_1.htm" target="_self">AppendText Method (String, String)</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AppendText_2.htm" target="_self">AppendText Method (List(String), String)</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AppendText_3.htm" target="_self">AppendText Method (String, Int32, String)</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AppendText_4.htm" target="_self">AppendText Method (String, String, String)</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AspFor.htm" target="_self">AspFor Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.CloneSchemaItems.htm" target="_self">CloneSchemaItems Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DisplayForModel.htm" target="_self">DisplayForModel Method </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DisplayForModelItem.htm" target="_self">DisplayForModelItem Method </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DisplayForModelItem.htm" target="_self">DisplayForModelItem Method (ISchemaItem)</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DisplayForModelItem_1.htm" target="_self">DisplayForModelItem Method (String, Int32, String, String)</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DisplayNameFor.htm" target="_self">DisplayNameFor Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DlTagDetails.htm" target="_self">DlTagDetails Method </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.ExpanderUpdater.htm" target="_self">ExpanderUpdater Method </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.ExpanderUpdater.htm" target="_self">ExpanderUpdater Method (String, String)</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.ExpanderUpdater_1.htm" target="_self">ExpanderUpdater Method (Boolean, String)</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.ExpanderUpdater_2.htm" target="_self">ExpanderUpdater Method (String, String, Int32, Boolean, String)</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.FormControl.htm" target="_self">FormControl Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.FormGroup.htm" target="_self">FormGroup Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.FormGroupDisplay.htm" target="_self">FormGroupDisplay Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetActions.htm" target="_self">GetActions Method </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumns.htm" target="_self">GetColumns Method </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumns.htm" target="_self">GetColumns Method (String, Boolean, String)</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumns_1.htm" target="_self">GetColumns Method (List(ISchemaItem), String, Boolean, String)</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumnsAndNavigation.htm" target="_self">GetColumnsAndNavigation Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumnsAsDictionary.htm" target="_self">GetColumnsAsDictionary Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumnsFromSettings.htm" target="_self">GetColumnsFromSettings Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetCompanyName.htm" target="_self">GetCompanyName Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetDefaultNameSpace.htm" target="_self">GetDefaultNameSpace Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetDisplayExpressionColumn.htm" target="_self">GetDisplayExpressionColumn Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetExpansionString.htm" target="_self">GetExpansionString Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetForeignKeyColumn.htm" target="_self">GetForeignKeyColumn Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetLookupTable.htm" target="_self">GetLookupTable Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOne2ManyTable.htm" target="_self">GetOne2ManyTable Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOrganizationLabel.htm" target="_self">GetOrganizationLabel Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOrganizationName.htm" target="_self">GetOrganizationName Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOutputFolder.htm" target="_self">GetOutputFolder Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetPrimaryKey.htm" target="_self">GetPrimaryKey Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetProjectName.htm" target="_self">GetProjectName Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetRelatedTables.htm" target="_self">GetRelatedTables Method </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetSettingsValue.htm" target="_self">GetSettingsValue Method </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetSettingsValue.htm" target="_self">GetSettingsValue Method (String, String)</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetSettingsValue_1.htm" target="_self">GetSettingsValue Method (String, String[])</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetSettingsValue_2.htm" target="_self">GetSettingsValue Method (String, String, List(String))</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTable.htm" target="_self">GetTable Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTableAndColumnsString.htm" target="_self">GetTableAndColumnsString Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTableLabel.htm" target="_self">GetTableLabel Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTableObject.htm" target="_self">GetTableObject Method </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTables.htm" target="_self">GetTables Method </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTables.htm" target="_self">GetTables Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTables_1.htm" target="_self">GetTables Method (List(ISchemaItem))</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTablesAndColumnsFromSettings.htm" target="_self">GetTablesAndColumnsFromSettings Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.HasCalculatedColumn.htm" target="_self">HasCalculatedColumn Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Indent.htm" target="_self">Indent Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Initializer.htm" target="_self">Initializer Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.InputType.htm" target="_self">InputType Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.IsInListOfTables.htm" target="_self">IsInListOfTables Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.IsTableInDatabase.htm" target="_self">IsTableInDatabase Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Pluralize.htm" target="_self">Pluralize Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.RetrieveSavedSettings.htm" target="_self">RetrieveSavedSettings Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Save.htm" target="_self">Save Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.SchemaItemUpdater.htm" target="_self">SchemaItemUpdater Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Singularize.htm" target="_self">Singularize Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Submit.htm" target="_self">Submit Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.TextDanger.htm" target="_self">TextDanger Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.UpdateExpander.htm" target="_self">UpdateExpander Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.UpdateSchemaItem.htm" target="_self">UpdateSchemaItem Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.htm" target="_self">ExpansionBase.Actions Structure</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.htm" target="_self">ExpansionBase.Actions Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.htm" target="_self">ExpansionBase.Actions Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Delete.htm" target="_self">Delete Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Get.htm" target="_self">Get Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Post.htm" target="_self">Post Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Put.htm" target="_self">Put Field</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-ZeraSystems.CodeNanite.Expansion.Extensions.htm" target="_self">Extensions Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-ZeraSystems.CodeNanite.Expansion.Extensions.htm" target="_self">Extensions Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-ZeraSystems.CodeNanite.Expansion.Extensions.htm" target="_self">Extensions Methods</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Overload-ZeraSystems.CodeNanite.Expansion.Extensions.AddAfter.htm" target="_self">AddAfter Method </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.Extensions.AddAfter.htm" target="_self">AddAfter Method (String, String, Boolean)</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.Extensions.AddAfter_1.htm" target="_self">AddAfter Method (String, String, Int32, Int32)</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.Extensions.AddCarriage.htm" target="_self">AddCarriage Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.Extensions.AddQuotes.htm" target="_self">AddQuotes Method </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Overload-ZeraSystems.CodeNanite.Expansion.Extensions.Comma.htm" target="_self">Comma Method </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.Extensions.Comma.htm" target="_self">Comma Method (String)</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.Extensions.Comma_1.htm" target="_self">Comma Method (String, Int32, Int32)</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.Extensions.DeepClone--1.htm" target="_self">DeepClone(T) Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.Extensions.IsBlank.htm" target="_self">IsBlank Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.Extensions.Pluralize.htm" target="_self">Pluralize Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.Extensions.Singularize.htm" target="_self">Singularize Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.htm" target="_self">frmSelectEntities Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.htm" target="_self">frmSelectEntities Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Overload-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.-ctor.htm" target="_self">frmSelectEntities Constructor </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.-ctor.htm" target="_self">frmSelectEntities Constructor </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.-ctor_1.htm" target="_self">frmSelectEntities Constructor (List(ISchemaItem), List(IExpander))</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.htm" target="_self">frmSelectEntities Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.SchemaString.htm" target="_self">SchemaString Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-ZeraSystems.CodeNanite.Expansion.General.htm" target="_self">General Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-ZeraSystems.CodeNanite.Expansion.General.htm" target="_self">General Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-ZeraSystems.CodeNanite.Expansion.General.htm" target="_self">General Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-ZeraSystems.CodeNanite.Expansion.General.SelectEntitiesForm.htm" target="_self">SelectEntitiesForm Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.htm" target="_self">SchemaItemObject Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.htm" target="_self">SchemaItemObject Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.htm" target="_self">SchemaItemObject Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.AllowDbNull.htm" target="_self">AllowDbNull Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.AlternateKeyName.htm" target="_self">AlternateKeyName Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CalculatedColumn.htm" target="_self">CalculatedColumn Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanDelete.htm" target="_self">CanDelete Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanGet.htm" target="_self">CanGet Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanPost.htm" target="_self">CanPost Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanPut.htm" target="_self">CanPut Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnAttribute.htm" target="_self">ColumnAttribute Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnLabel.htm" target="_self">ColumnLabel Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnName.htm" target="_self">ColumnName Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnSequence.htm" target="_self">ColumnSequence Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnSize.htm" target="_self">ColumnSize Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnType.htm" target="_self">ColumnType Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ComputedColumnSql.htm" target="_self">ComputedColumnSql Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ConstraintName.htm" target="_self">ConstraintName Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.DefaultValue.htm" target="_self">DefaultValue Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.DefaultValueSql.htm" target="_self">DefaultValueSql Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.HasSequence.htm" target="_self">HasSequence Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IndexName.htm" target="_self">IndexName Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsAutoIncrement.htm" target="_self">IsAutoIncrement Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsCalculatedColumn.htm" target="_self">IsCalculatedColumn Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsChecked.htm" target="_self">IsChecked Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsForeignKey.htm" target="_self">IsForeignKey Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsPrimaryKey.htm" target="_self">IsPrimaryKey Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsRequired.htm" target="_self">IsRequired Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsTableLabel.htm" target="_self">IsTableLabel Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsUnique.htm" target="_self">IsUnique Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsUpdatedByNanite.htm" target="_self">IsUpdatedByNanite Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.LinkedRow.htm" target="_self">LinkedRow Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.LookupColumn.htm" target="_self">LookupColumn Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.LookupDisplayColumn.htm" target="_self">LookupDisplayColumn Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.MappedColumnName.htm" target="_self">MappedColumnName Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.MaxLength.htm" target="_self">MaxLength Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.NumericPrecision.htm" target="_self">NumericPrecision Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.OriginalName.htm" target="_self">OriginalName Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ParentId.htm" target="_self">ParentId Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.PrimaryKeyName.htm" target="_self">PrimaryKeyName Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.RelatedTable.htm" target="_self">RelatedTable Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.Relationship.htm" target="_self">Relationship Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.Schema.htm" target="_self">Schema Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.SchemaItemId.htm" target="_self">SchemaItemId Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.TableName.htm" target="_self">TableName Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+            </div>
+
+        </div>
+
+        <div id="TOCSizer" class="TOCSizer" onmousedown="OnMouseDown(event)" onselectstart="javascript: return false;"></div>
+        
+        <div id ="TopicContent" name="TopicContent" class="TopicContent" style="float: none; margin-left: 312px;height: -webkit-fill-available;display:block;overflow: auto;">
+          
+          <!-- Content Starts Here -->
+          <div class="contentPlaceHolder" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+      <div class="content">
+        <div class="topicContainer">
+          <div class="topic">
+            <p class="majorTitle" />
+            <h1 class="title">ExpansionBase<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>GetOne2ManyTable Method </h1>
+            <div id="mainSection">
+              <div id="mainBody">
+                <div class="summary">
+   Gets the 12M table.
+   </div>
+                <p />
+    <b>Namespace:</b> 
+   <a href="N-ZeraSystems.CodeNanite.Expansion.htm">ZeraSystems.CodeNanite.Expansion</a><br />
+    <b>Assembly:</b>
+   <span sdata="assembly">Expansion</span> (in Expansion.dll)<div class="LW_CollapsibleArea_Container"><div class="LW_CollapsibleArea_TitleDiv"><h2 class="LW_CollapsibleArea_Title">Syntax</h2><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr" /></div></div><a id="syntaxSection"><!----></a><div class="CodeSnippetContainer"><div class="CodeSnippetContainerTabs"><div class="CodeSnippetContainerTabLeft"><!----></div><div class="CodeSnippetContainerTabFirst CSharpTab" id="CSharpTabId" style="background:white;border-bottom-color:white"><a href="javascript:setActiveTab('CodeSnippetContainerCode','CSharpCode','CSharpTabId');" title="C#">C#</a></div><div class="CodeSnippetContainerTabRight"><!----></div></div><div class="CodeSnippetContainerCodeCollection"><div class="CodeSnippetToolBar"><div class="CodeSnippetToolBarText" /></div><div class="CodeSnippetContainerCode CSharpCode"><pre xml:space="preserve" class="libCScode"><span class="keyword">public</span> <a href="http://msdn.microsoft.com/en-us/library/9eekhta0.aspx" target="_blank">IEnumerable</a>&lt;<span class="nolink">ISchemaItem</span>&gt; <span class="identifier">GetOne2ManyTable</span>(
+	<a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">string</a> <span class="parameter">table</span>
+)</pre></div></div></div><div id="parameters"><h4 class="subHeading">Parameters</h4><dl paramName="table"><dt><span class="parameterItalic">table</span></dt><dd>Type: <a href="http://msdn.microsoft.com/en-us/library/system.string.aspx" target="_blank">String</a><br />The table.</dd></dl></div><h4 class="subHeading">Return Value</h4>IEnumerable&lt;ISchemaItem&gt;.</div><div class="LW_CollapsibleArea_Container"><div class="LW_CollapsibleArea_TitleDiv"><h2 class="LW_CollapsibleArea_Title">See Also</h2><div class="LW_CollapsibleArea_HrDiv"><hr class="LW_CollapsibleArea_Hr" /></div></div><a id="seeAlsoSection"><!----></a><div class="seeAlsoStyle"><a href="T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm">ExpansionBase Class</a></div><div class="seeAlsoStyle"><a href="N-ZeraSystems.CodeNanite.Expansion.htm">ZeraSystems.CodeNanite.Expansion Namespace</a></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div id="footer" class="footerContainer">
+          <div class="footerLogoContainer">
+            <div style="margin-top:5px">
+              <span class="customCopyrightFooter" />
+            </div>
+            <div style="margin-top:5px" class="copyrightFooter">Help File generated with GhostDoc</div>
+            <div> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+          <!-- /Content Ends Here -->
+        </div>
+
+
+  </body>
+</html>

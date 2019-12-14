@@ -1,0 +1,5 @@
+D:\projects-desktop\codestencil\app\src\ZeraSystems.CodeStencil.Contracts\obj\Debug\ZeraSystems.CodeStencil.Contracts.csprojAssemblyReference.cache
+D:\projects-desktop\codestencil\app\src\ZeraSystems.CodeStencil.Contracts\obj\Debug\ZeraSystems.CodeStencil.Contracts.dll
+D:\projects-desktop\codestencil\app\src\ZeraSystems.CodeStencil.Contracts\obj\Debug\ZeraSystems.CodeStencil.Contracts.pdb
+D:\projects-desktop\codestencil\app\src\ZeraSystems.CodeStencil.Contracts\ZeraSystems.CodeStencil.Contracts.dll
+D:\projects-desktop\codestencil\app\src\ZeraSystems.CodeStencil.Contracts\ZeraSystems.CodeStencil.Contracts.pdb

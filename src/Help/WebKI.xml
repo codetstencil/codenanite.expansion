@@ -1,0 +1,360 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title=".Equals method" Url="html/M-ZeraSystems.CodeNanite.Expansion.SchemaItemComparer.Equals.htm" />
+  <HelpKINode Title=".GetHashCode method" Url="html/M-ZeraSystems.CodeNanite.Expansion.SchemaItemComparer.GetHashCode.htm" />
+  <HelpKINode Title="Actions.Delete field" Url="html/F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Delete.htm" />
+  <HelpKINode Title="Actions.Get field" Url="html/F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Get.htm" />
+  <HelpKINode Title="Actions.Post field" Url="html/F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Post.htm" />
+  <HelpKINode Title="Actions.Put field" Url="html/F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Put.htm" />
+  <HelpKINode Title="AddAfter method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.Extensions.AddAfter.htm" />
+  <HelpKINode Title="AddCarriage method" Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.AddCarriage.htm" />
+  <HelpKINode Title="AddQuotes method">
+    <HelpKINode Title="AddQuotes Method " Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.AddQuotes.htm" />
+    <HelpKINode Title="AddQuotes Method " Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AddQuotes.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AllowDbNull property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.AllowDbNull.htm" />
+  <HelpKINode Title="AlternateKeyName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.AlternateKeyName.htm" />
+  <HelpKINode Title="AppendText method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AppendText.htm" />
+  <HelpKINode Title="AspActionCreate field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspActionCreate.htm" />
+  <HelpKINode Title="AspActionEdit field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspActionEdit.htm" />
+  <HelpKINode Title="AspDivColMd4 field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivColMd4.htm" />
+  <HelpKINode Title="AspDivEndTag field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivEndTag.htm" />
+  <HelpKINode Title="AspDivFormGroup field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivFormGroup.htm" />
+  <HelpKINode Title="AspDivRow field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivRow.htm" />
+  <HelpKINode Title="AspDivStartTag field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivStartTag.htm" />
+  <HelpKINode Title="AspFor method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AspFor.htm" />
+  <HelpKINode Title="AspValidateModelOnly field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspValidateModelOnly.htm" />
+  <HelpKINode Title="BaseHelper class">
+    <HelpKINode Title="BaseHelper Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.BaseHelper.htm" />
+    <HelpKINode Title="BaseHelper Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.BaseHelper.htm" />
+    <HelpKINode Title="about BaseHelper class" Url="html/T-ZeraSystems.CodeNanite.Expansion.BaseHelper.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.BaseHelper.htm" />
+    <HelpKINode Title="constructor" Url="html/M-ZeraSystems.CodeNanite.Expansion.BaseHelper.-ctor.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BaseHelper.BaseHelper constructor" Url="html/M-ZeraSystems.CodeNanite.Expansion.BaseHelper.-ctor.htm" />
+  <HelpKINode Title="CalculatedColumn property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CalculatedColumn.htm" />
+  <HelpKINode Title="CanDelete property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanDelete.htm" />
+  <HelpKINode Title="CanGet property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanGet.htm" />
+  <HelpKINode Title="CanPost property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanPost.htm" />
+  <HelpKINode Title="CanPut property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanPut.htm" />
+  <HelpKINode Title="CloneSchemaItems method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.CloneSchemaItems.htm" />
+  <HelpKINode Title="ColumnAttribute property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnAttribute.htm" />
+  <HelpKINode Title="ColumnLabel property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnLabel.htm" />
+  <HelpKINode Title="ColumnName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnName.htm" />
+  <HelpKINode Title="ColumnSequence property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnSequence.htm" />
+  <HelpKINode Title="ColumnSize property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnSize.htm" />
+  <HelpKINode Title="ColumnType property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnType.htm" />
+  <HelpKINode Title="Comma method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.Extensions.Comma.htm" />
+  <HelpKINode Title="ComputedColumnSql property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ComputedColumnSql.htm" />
+  <HelpKINode Title="Constants class">
+    <HelpKINode Title="Constants Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.Constants.htm" />
+    <HelpKINode Title="Constants Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.Constants.htm" />
+    <HelpKINode Title="about Constants class" Url="html/T-ZeraSystems.CodeNanite.Expansion.Constants.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.Constants.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ZeraSystems.CodeNanite.Expansion.Constants.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Constants.AspActionCreate field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspActionCreate.htm" />
+  <HelpKINode Title="Constants.AspActionEdit field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspActionEdit.htm" />
+  <HelpKINode Title="Constants.AspDivColMd4 field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivColMd4.htm" />
+  <HelpKINode Title="Constants.AspDivEndTag field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivEndTag.htm" />
+  <HelpKINode Title="Constants.AspDivFormGroup field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivFormGroup.htm" />
+  <HelpKINode Title="Constants.AspDivRow field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivRow.htm" />
+  <HelpKINode Title="Constants.AspDivStartTag field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspDivStartTag.htm" />
+  <HelpKINode Title="Constants.AspValidateModelOnly field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.AspValidateModelOnly.htm" />
+  <HelpKINode Title="Constants.KeySuffix field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.KeySuffix.htm" />
+  <HelpKINode Title="Constants.ManyToMany field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.ManyToMany.htm" />
+  <HelpKINode Title="Constants.ManyToOne field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.ManyToOne.htm" />
+  <HelpKINode Title="Constants.OneToMany field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.OneToMany.htm" />
+  <HelpKINode Title="Constants.OneToOne field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.OneToOne.htm" />
+  <HelpKINode Title="Constants.StrLineFeed field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.StrLineFeed.htm" />
+  <HelpKINode Title="Constants.TypeSizeImage field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.TypeSizeImage.htm" />
+  <HelpKINode Title="Constants.TypeSizeNtext field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.TypeSizeNtext.htm" />
+  <HelpKINode Title="Constants.TypeSizeText field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.TypeSizeText.htm" />
+  <HelpKINode Title="ConstraintName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ConstraintName.htm" />
+  <HelpKINode Title="DeepClone(Of T) method" Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.DeepClone--1.htm" />
+  <HelpKINode Title="DeepClone&lt;T&gt; method" Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.DeepClone--1.htm" />
+  <HelpKINode Title="DefaultValue property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.DefaultValue.htm" />
+  <HelpKINode Title="DefaultValueSql property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.DefaultValueSql.htm" />
+  <HelpKINode Title="Delete field" Url="html/F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Delete.htm" />
+  <HelpKINode Title="DisplayForModel method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DisplayForModel.htm" />
+  <HelpKINode Title="DisplayForModelItem method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DisplayForModelItem.htm" />
+  <HelpKINode Title="DisplayNameFor method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DisplayNameFor.htm" />
+  <HelpKINode Title="DlTagDetails method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DlTagDetails.htm" />
+  <HelpKINode Title="Equals method" Url="html/M-ZeraSystems.CodeNanite.Expansion.SchemaItemComparer.Equals.htm" />
+  <HelpKINode Title="ExpandedText field" Url="html/F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.ExpandedText.htm" />
+  <HelpKINode Title="ExpanderUpdater method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.ExpanderUpdater.htm" />
+  <HelpKINode Title="ExpansionBase class">
+    <HelpKINode Title="ExpansionBase Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" />
+    <HelpKINode Title="ExpansionBase Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" />
+    <HelpKINode Title="about ExpansionBase class" Url="html/T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ExpansionBase.Actions structure">
+    <HelpKINode Title="ExpansionBase.Actions Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.htm" />
+    <HelpKINode Title="ExpansionBase.Actions Structure" Url="html/T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.htm" />
+    <HelpKINode Title="about ExpansionBase.Actions structure" Url="html/T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ExpansionBase.AddQuotes method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AddQuotes.htm" />
+  <HelpKINode Title="ExpansionBase.AppendText method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AppendText.htm" />
+  <HelpKINode Title="ExpansionBase.AspFor method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.AspFor.htm" />
+  <HelpKINode Title="ExpansionBase.CloneSchemaItems method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.CloneSchemaItems.htm" />
+  <HelpKINode Title="ExpansionBase.DisplayForModel method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DisplayForModel.htm" />
+  <HelpKINode Title="ExpansionBase.DisplayForModelItem method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DisplayForModelItem.htm" />
+  <HelpKINode Title="ExpansionBase.DisplayNameFor method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DisplayNameFor.htm" />
+  <HelpKINode Title="ExpansionBase.DlTagDetails method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.DlTagDetails.htm" />
+  <HelpKINode Title="ExpansionBase.ExpandedText field" Url="html/F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.ExpandedText.htm" />
+  <HelpKINode Title="ExpansionBase.ExpanderUpdater method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.ExpanderUpdater.htm" />
+  <HelpKINode Title="ExpansionBase.FormControl method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.FormControl.htm" />
+  <HelpKINode Title="ExpansionBase.FormGroup method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.FormGroup.htm" />
+  <HelpKINode Title="ExpansionBase.FormGroupDisplay method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.FormGroupDisplay.htm" />
+  <HelpKINode Title="ExpansionBase.GetActions method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetActions.htm" />
+  <HelpKINode Title="ExpansionBase.GetColumns method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumns.htm" />
+  <HelpKINode Title="ExpansionBase.GetColumnsAndNavigation method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumnsAndNavigation.htm" />
+  <HelpKINode Title="ExpansionBase.GetColumnsAsDictionary method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumnsAsDictionary.htm" />
+  <HelpKINode Title="ExpansionBase.GetColumnsFromSettings method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumnsFromSettings.htm" />
+  <HelpKINode Title="ExpansionBase.GetCompanyName method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetCompanyName.htm" />
+  <HelpKINode Title="ExpansionBase.GetDefaultNameSpace method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetDefaultNameSpace.htm" />
+  <HelpKINode Title="ExpansionBase.GetDisplayExpressionColumn method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetDisplayExpressionColumn.htm" />
+  <HelpKINode Title="ExpansionBase.GetExpansionString method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetExpansionString.htm" />
+  <HelpKINode Title="ExpansionBase.GetForeignKeyColumn method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetForeignKeyColumn.htm" />
+  <HelpKINode Title="ExpansionBase.GetLookupTable method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetLookupTable.htm" />
+  <HelpKINode Title="ExpansionBase.GetOne2ManyTable method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOne2ManyTable.htm" />
+  <HelpKINode Title="ExpansionBase.GetOrganizationLabel method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOrganizationLabel.htm" />
+  <HelpKINode Title="ExpansionBase.GetOrganizationName method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOrganizationName.htm" />
+  <HelpKINode Title="ExpansionBase.GetOutputFolder method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOutputFolder.htm" />
+  <HelpKINode Title="ExpansionBase.GetPrimaryKey method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetPrimaryKey.htm" />
+  <HelpKINode Title="ExpansionBase.GetProjectName method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetProjectName.htm" />
+  <HelpKINode Title="ExpansionBase.GetRelatedTables method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetRelatedTables.htm" />
+  <HelpKINode Title="ExpansionBase.GetSettingsValue method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetSettingsValue.htm" />
+  <HelpKINode Title="ExpansionBase.GetTable method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTable.htm" />
+  <HelpKINode Title="ExpansionBase.GetTableAndColumnsString method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTableAndColumnsString.htm" />
+  <HelpKINode Title="ExpansionBase.GetTableLabel method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTableLabel.htm" />
+  <HelpKINode Title="ExpansionBase.GetTableObject method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTableObject.htm" />
+  <HelpKINode Title="ExpansionBase.GetTables method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTables.htm" />
+  <HelpKINode Title="ExpansionBase.GetTablesAndColumnsFromSettings method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTablesAndColumnsFromSettings.htm" />
+  <HelpKINode Title="ExpansionBase.HasCalculatedColumn method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.HasCalculatedColumn.htm" />
+  <HelpKINode Title="ExpansionBase.Indent method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Indent.htm" />
+  <HelpKINode Title="ExpansionBase.Initializer method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Initializer.htm" />
+  <HelpKINode Title="ExpansionBase.InputType method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.InputType.htm" />
+  <HelpKINode Title="ExpansionBase.IsInListOfTables method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.IsInListOfTables.htm" />
+  <HelpKINode Title="ExpansionBase.IsTableInDatabase method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.IsTableInDatabase.htm" />
+  <HelpKINode Title="ExpansionBase.Pluralize method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Pluralize.htm" />
+  <HelpKINode Title="ExpansionBase.RetrieveSavedSettings method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.RetrieveSavedSettings.htm" />
+  <HelpKINode Title="ExpansionBase.Save method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Save.htm" />
+  <HelpKINode Title="ExpansionBase.SchemaItemUpdater method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.SchemaItemUpdater.htm" />
+  <HelpKINode Title="ExpansionBase.Singularize method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Singularize.htm" />
+  <HelpKINode Title="ExpansionBase.Submit method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Submit.htm" />
+  <HelpKINode Title="ExpansionBase.TextDanger method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.TextDanger.htm" />
+  <HelpKINode Title="ExpansionBase.UpdateExpander method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.UpdateExpander.htm" />
+  <HelpKINode Title="ExpansionBase.UpdateSchemaItem method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.UpdateSchemaItem.htm" />
+  <HelpKINode Title="Extensions class">
+    <HelpKINode Title="Extensions Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.Extensions.htm" />
+    <HelpKINode Title="Extensions Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.Extensions.htm" />
+    <HelpKINode Title="about Extensions class" Url="html/T-ZeraSystems.CodeNanite.Expansion.Extensions.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.Extensions.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ZeraSystems.CodeNanite.Expansion.Extensions.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Extensions.AddAfter method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.Extensions.AddAfter.htm" />
+  <HelpKINode Title="Extensions.AddCarriage method" Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.AddCarriage.htm" />
+  <HelpKINode Title="Extensions.AddQuotes method" Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.AddQuotes.htm" />
+  <HelpKINode Title="Extensions.Comma method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.Extensions.Comma.htm" />
+  <HelpKINode Title="Extensions.DeepClone(Of T) method" Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.DeepClone--1.htm" />
+  <HelpKINode Title="Extensions.DeepClone&lt;T&gt; method" Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.DeepClone--1.htm" />
+  <HelpKINode Title="Extensions.IsBlank method" Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.IsBlank.htm" />
+  <HelpKINode Title="Extensions.Pluralize method" Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.Pluralize.htm" />
+  <HelpKINode Title="Extensions.Singularize method" Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.Singularize.htm" />
+  <HelpKINode Title="FormControl method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.FormControl.htm" />
+  <HelpKINode Title="FormGroup method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.FormGroup.htm" />
+  <HelpKINode Title="FormGroupDisplay method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.FormGroupDisplay.htm" />
+  <HelpKINode Title="frmSelectEntities class">
+    <HelpKINode Title="frmSelectEntities Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.htm" />
+    <HelpKINode Title="frmSelectEntities Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.htm" />
+    <HelpKINode Title="about frmSelectEntities class" Url="html/T-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.-ctor.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.htm" />
+  </HelpKINode>
+  <HelpKINode Title="frmSelectEntities.frmSelectEntities constructor" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.-ctor.htm" />
+  <HelpKINode Title="frmSelectEntities.SchemaString property" Url="html/P-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.SchemaString.htm" />
+  <HelpKINode Title="General class">
+    <HelpKINode Title="General Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.General.htm" />
+    <HelpKINode Title="General Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.General.htm" />
+    <HelpKINode Title="about General class" Url="html/T-ZeraSystems.CodeNanite.Expansion.General.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.General.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-ZeraSystems.CodeNanite.Expansion.General.htm" />
+  </HelpKINode>
+  <HelpKINode Title="General.SelectEntitiesForm method" Url="html/M-ZeraSystems.CodeNanite.Expansion.General.SelectEntitiesForm.htm" />
+  <HelpKINode Title="Get field" Url="html/F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Get.htm" />
+  <HelpKINode Title="GetActions method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetActions.htm" />
+  <HelpKINode Title="GetColumns method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumns.htm" />
+  <HelpKINode Title="GetColumnsAndNavigation method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumnsAndNavigation.htm" />
+  <HelpKINode Title="GetColumnsAsDictionary method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumnsAsDictionary.htm" />
+  <HelpKINode Title="GetColumnsFromSettings method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetColumnsFromSettings.htm" />
+  <HelpKINode Title="GetCompanyName method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetCompanyName.htm" />
+  <HelpKINode Title="GetDefaultNameSpace method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetDefaultNameSpace.htm" />
+  <HelpKINode Title="GetDisplayExpressionColumn method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetDisplayExpressionColumn.htm" />
+  <HelpKINode Title="GetExpansionString method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetExpansionString.htm" />
+  <HelpKINode Title="GetForeignKeyColumn method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetForeignKeyColumn.htm" />
+  <HelpKINode Title="GetHashCode method" Url="html/M-ZeraSystems.CodeNanite.Expansion.SchemaItemComparer.GetHashCode.htm" />
+  <HelpKINode Title="GetLookupTable method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetLookupTable.htm" />
+  <HelpKINode Title="GetOne2ManyTable method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOne2ManyTable.htm" />
+  <HelpKINode Title="GetOrganizationLabel method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOrganizationLabel.htm" />
+  <HelpKINode Title="GetOrganizationName method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOrganizationName.htm" />
+  <HelpKINode Title="GetOutputFolder method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetOutputFolder.htm" />
+  <HelpKINode Title="GetPrimaryKey method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetPrimaryKey.htm" />
+  <HelpKINode Title="GetProjectName method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetProjectName.htm" />
+  <HelpKINode Title="GetRelatedTables method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetRelatedTables.htm" />
+  <HelpKINode Title="GetSettingsValue method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetSettingsValue.htm" />
+  <HelpKINode Title="GetTable method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTable.htm" />
+  <HelpKINode Title="GetTableAndColumnsString method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTableAndColumnsString.htm" />
+  <HelpKINode Title="GetTableLabel method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTableLabel.htm" />
+  <HelpKINode Title="GetTableObject method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTableObject.htm" />
+  <HelpKINode Title="GetTables method" Url="html/Overload-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTables.htm" />
+  <HelpKINode Title="GetTablesAndColumnsFromSettings method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.GetTablesAndColumnsFromSettings.htm" />
+  <HelpKINode Title="HasCalculatedColumn method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.HasCalculatedColumn.htm" />
+  <HelpKINode Title="HasSequence property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.HasSequence.htm" />
+  <HelpKINode Title="Indent method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Indent.htm" />
+  <HelpKINode Title="IndexName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IndexName.htm" />
+  <HelpKINode Title="Initializer method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Initializer.htm" />
+  <HelpKINode Title="InputType method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.InputType.htm" />
+  <HelpKINode Title="IsAutoIncrement property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsAutoIncrement.htm" />
+  <HelpKINode Title="IsBlank method" Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.IsBlank.htm" />
+  <HelpKINode Title="IsCalculatedColumn property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsCalculatedColumn.htm" />
+  <HelpKINode Title="IsChecked property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsChecked.htm" />
+  <HelpKINode Title="IsForeignKey property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsForeignKey.htm" />
+  <HelpKINode Title="IsInListOfTables method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.IsInListOfTables.htm" />
+  <HelpKINode Title="IsPrimaryKey property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsPrimaryKey.htm" />
+  <HelpKINode Title="IsRequired property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsRequired.htm" />
+  <HelpKINode Title="IsTableInDatabase method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.IsTableInDatabase.htm" />
+  <HelpKINode Title="IsTableLabel property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsTableLabel.htm" />
+  <HelpKINode Title="IsUnique property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsUnique.htm" />
+  <HelpKINode Title="IsUpdatedByNanite property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsUpdatedByNanite.htm" />
+  <HelpKINode Title="KeySuffix field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.KeySuffix.htm" />
+  <HelpKINode Title="LinkedRow property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.LinkedRow.htm" />
+  <HelpKINode Title="LookupColumn property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.LookupColumn.htm" />
+  <HelpKINode Title="LookupDisplayColumn property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.LookupDisplayColumn.htm" />
+  <HelpKINode Title="ManyToMany field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.ManyToMany.htm" />
+  <HelpKINode Title="ManyToOne field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.ManyToOne.htm" />
+  <HelpKINode Title="MappedColumnName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.MappedColumnName.htm" />
+  <HelpKINode Title="MaxLength property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.MaxLength.htm" />
+  <HelpKINode Title="NumericPrecision property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.NumericPrecision.htm" />
+  <HelpKINode Title="OneToMany field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.OneToMany.htm" />
+  <HelpKINode Title="OneToOne field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.OneToOne.htm" />
+  <HelpKINode Title="OriginalName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.OriginalName.htm" />
+  <HelpKINode Title="ParentId property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ParentId.htm" />
+  <HelpKINode Title="Pluralize method">
+    <HelpKINode Title="Pluralize Method " Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.Pluralize.htm" />
+    <HelpKINode Title="Pluralize Method " Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Pluralize.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Post field" Url="html/F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Post.htm" />
+  <HelpKINode Title="PrimaryKeyName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.PrimaryKeyName.htm" />
+  <HelpKINode Title="Put field" Url="html/F-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.Put.htm" />
+  <HelpKINode Title="RelatedTable property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.RelatedTable.htm" />
+  <HelpKINode Title="Relationship property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.Relationship.htm" />
+  <HelpKINode Title="RetrieveSavedSettings method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.RetrieveSavedSettings.htm" />
+  <HelpKINode Title="Save method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Save.htm" />
+  <HelpKINode Title="Schema property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.Schema.htm" />
+  <HelpKINode Title="SchemaItemId property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.SchemaItemId.htm" />
+  <HelpKINode Title="SchemaItemObject class">
+    <HelpKINode Title="SchemaItemObject Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.htm" />
+    <HelpKINode Title="SchemaItemObject Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.htm" />
+    <HelpKINode Title="about SchemaItemObject class" Url="html/T-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SchemaItemObject.AllowDbNull property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.AllowDbNull.htm" />
+  <HelpKINode Title="SchemaItemObject.AlternateKeyName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.AlternateKeyName.htm" />
+  <HelpKINode Title="SchemaItemObject.CalculatedColumn property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CalculatedColumn.htm" />
+  <HelpKINode Title="SchemaItemObject.CanDelete property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanDelete.htm" />
+  <HelpKINode Title="SchemaItemObject.CanGet property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanGet.htm" />
+  <HelpKINode Title="SchemaItemObject.CanPost property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanPost.htm" />
+  <HelpKINode Title="SchemaItemObject.CanPut property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.CanPut.htm" />
+  <HelpKINode Title="SchemaItemObject.ColumnAttribute property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnAttribute.htm" />
+  <HelpKINode Title="SchemaItemObject.ColumnLabel property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnLabel.htm" />
+  <HelpKINode Title="SchemaItemObject.ColumnName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnName.htm" />
+  <HelpKINode Title="SchemaItemObject.ColumnSequence property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnSequence.htm" />
+  <HelpKINode Title="SchemaItemObject.ColumnSize property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnSize.htm" />
+  <HelpKINode Title="SchemaItemObject.ColumnType property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ColumnType.htm" />
+  <HelpKINode Title="SchemaItemObject.ComputedColumnSql property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ComputedColumnSql.htm" />
+  <HelpKINode Title="SchemaItemObject.ConstraintName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ConstraintName.htm" />
+  <HelpKINode Title="SchemaItemObject.DefaultValue property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.DefaultValue.htm" />
+  <HelpKINode Title="SchemaItemObject.DefaultValueSql property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.DefaultValueSql.htm" />
+  <HelpKINode Title="SchemaItemObject.HasSequence property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.HasSequence.htm" />
+  <HelpKINode Title="SchemaItemObject.IndexName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IndexName.htm" />
+  <HelpKINode Title="SchemaItemObject.IsAutoIncrement property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsAutoIncrement.htm" />
+  <HelpKINode Title="SchemaItemObject.IsCalculatedColumn property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsCalculatedColumn.htm" />
+  <HelpKINode Title="SchemaItemObject.IsChecked property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsChecked.htm" />
+  <HelpKINode Title="SchemaItemObject.IsForeignKey property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsForeignKey.htm" />
+  <HelpKINode Title="SchemaItemObject.IsPrimaryKey property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsPrimaryKey.htm" />
+  <HelpKINode Title="SchemaItemObject.IsRequired property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsRequired.htm" />
+  <HelpKINode Title="SchemaItemObject.IsTableLabel property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsTableLabel.htm" />
+  <HelpKINode Title="SchemaItemObject.IsUnique property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsUnique.htm" />
+  <HelpKINode Title="SchemaItemObject.IsUpdatedByNanite property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.IsUpdatedByNanite.htm" />
+  <HelpKINode Title="SchemaItemObject.LinkedRow property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.LinkedRow.htm" />
+  <HelpKINode Title="SchemaItemObject.LookupColumn property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.LookupColumn.htm" />
+  <HelpKINode Title="SchemaItemObject.LookupDisplayColumn property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.LookupDisplayColumn.htm" />
+  <HelpKINode Title="SchemaItemObject.MappedColumnName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.MappedColumnName.htm" />
+  <HelpKINode Title="SchemaItemObject.MaxLength property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.MaxLength.htm" />
+  <HelpKINode Title="SchemaItemObject.NumericPrecision property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.NumericPrecision.htm" />
+  <HelpKINode Title="SchemaItemObject.OriginalName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.OriginalName.htm" />
+  <HelpKINode Title="SchemaItemObject.ParentId property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.ParentId.htm" />
+  <HelpKINode Title="SchemaItemObject.PrimaryKeyName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.PrimaryKeyName.htm" />
+  <HelpKINode Title="SchemaItemObject.RelatedTable property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.RelatedTable.htm" />
+  <HelpKINode Title="SchemaItemObject.Relationship property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.Relationship.htm" />
+  <HelpKINode Title="SchemaItemObject.Schema property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.Schema.htm" />
+  <HelpKINode Title="SchemaItemObject.SchemaItemId property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.SchemaItemId.htm" />
+  <HelpKINode Title="SchemaItemObject.TableName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.TableName.htm" />
+  <HelpKINode Title="SchemaItemUpdater method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.SchemaItemUpdater.htm" />
+  <HelpKINode Title="SchemaString property" Url="html/P-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.SchemaString.htm" />
+  <HelpKINode Title="SelectEntitiesForm method" Url="html/M-ZeraSystems.CodeNanite.Expansion.General.SelectEntitiesForm.htm" />
+  <HelpKINode Title="Singularize method">
+    <HelpKINode Title="Singularize Method " Url="html/M-ZeraSystems.CodeNanite.Expansion.Extensions.Singularize.htm" />
+    <HelpKINode Title="Singularize Method " Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Singularize.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StrLineFeed field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.StrLineFeed.htm" />
+  <HelpKINode Title="Submit method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Submit.htm" />
+  <HelpKINode Title="TableName property" Url="html/P-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.TableName.htm" />
+  <HelpKINode Title="TextDanger method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.TextDanger.htm" />
+  <HelpKINode Title="TypeSizeImage field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.TypeSizeImage.htm" />
+  <HelpKINode Title="TypeSizeNtext field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.TypeSizeNtext.htm" />
+  <HelpKINode Title="TypeSizeText field" Url="html/F-ZeraSystems.CodeNanite.Expansion.Constants.TypeSizeText.htm" />
+  <HelpKINode Title="UpdateExpander method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.UpdateExpander.htm" />
+  <HelpKINode Title="UpdateSchemaItem method" Url="html/M-ZeraSystems.CodeNanite.Expansion.ExpansionBase.UpdateSchemaItem.htm" />
+  <HelpKINode Title="ZeraSystems.CodeNanite.Expansion namespace" Url="html/N-ZeraSystems.CodeNanite.Expansion.htm" />
+  <HelpKINode Title="ZeraSystems.CodeNanite.Expansion.BaseHelper class">
+    <HelpKINode Title="BaseHelper Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.BaseHelper.htm" />
+    <HelpKINode Title="BaseHelper Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.BaseHelper.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ZeraSystems.CodeNanite.Expansion.Constants class">
+    <HelpKINode Title="Constants Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.Constants.htm" />
+    <HelpKINode Title="Constants Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.Constants.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ZeraSystems.CodeNanite.Expansion.ExpansionBase class">
+    <HelpKINode Title="ExpansionBase Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" />
+    <HelpKINode Title="ExpansionBase Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions structure">
+    <HelpKINode Title="ExpansionBase.Actions Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.htm" />
+    <HelpKINode Title="ExpansionBase.Actions Structure" Url="html/T-ZeraSystems.CodeNanite.Expansion.ExpansionBase.Actions.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ZeraSystems.CodeNanite.Expansion.Extensions class">
+    <HelpKINode Title="Extensions Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.Extensions.htm" />
+    <HelpKINode Title="Extensions Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.Extensions.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ZeraSystems.CodeNanite.Expansion.frmSelectEntities class">
+    <HelpKINode Title="frmSelectEntities Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.htm" />
+    <HelpKINode Title="frmSelectEntities Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.frmSelectEntities.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ZeraSystems.CodeNanite.Expansion.General class">
+    <HelpKINode Title="General Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.General.htm" />
+    <HelpKINode Title="General Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.General.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ZeraSystems.CodeNanite.Expansion.SchemaItemObject class">
+    <HelpKINode Title="SchemaItemObject Class" Url="html/T-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.htm" />
+    <HelpKINode Title="SchemaItemObject Members" Url="html/AllMembers.T-ZeraSystems.CodeNanite.Expansion.SchemaItemObject.htm" />
+  </HelpKINode>
+</HelpKI>

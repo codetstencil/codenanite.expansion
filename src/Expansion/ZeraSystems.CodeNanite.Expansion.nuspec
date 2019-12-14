@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>ZeraSystems.CodeNanite.Expansion</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <icon>logo64x64.png</icon>
+    <projectUrl>https://www.codestencil.com/</projectUrl>
+    <description>$description$</description>
+    <releaseNotes>Original release to nuget framework</releaseNotes>
+    <copyright>$copyright$</copyright>
+    <tags>Code Generator Template Stencil</tags>
+    <dependencies>
+      <group targetFramework=".NETFramework4.6.2" >
+        <dependency id="ZeraSystems.CodeStencil.Contracts" version="1.1.1" />
+        <dependency id="Pluralize.NET" version="1.0.2.0" />
+      </group>
+    </dependencies>
+    <frameworkAssemblies>
+      <frameworkAssembly assemblyName="System" targetFramework="" />
+      <frameworkAssembly assemblyName="System.ComponentModel.Composition" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Core" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Drawing" targetFramework="" />
+      <frameworkAssembly assemblyName="System.Windows.Forms" targetFramework="" />
+      <frameworkAssembly assemblyName="WindowsBase" targetFramework="" />
+      <!--<frameworkAssembly assemblyName="PresentationCore" targetFramework=""/>-->
+    </frameworkAssemblies>
+  </metadata>
+  <files>
+    <file src="..\..\..\build\release\ZeraSystems.CodeNanite.Expansion.dll" target="lib\net462" />
+    <file src="logo64x64.png" target="" />
+  </files>
+</package>
+

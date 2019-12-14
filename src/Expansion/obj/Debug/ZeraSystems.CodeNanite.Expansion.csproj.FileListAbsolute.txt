@@ -1,0 +1,8 @@
+D:\projects-desktop\codestencil\code-nanites\build\debug\ZeraSystems.CodeNanite.Expansion.dll
+D:\projects-desktop\codestencil\code-nanites\build\debug\ZeraSystems.CodeNanite.Expansion.pdb
+D:\projects-desktop\codestencil\code-nanites\zerasystems.expansion\src\Expansion\obj\Debug\ZeraSystems.CodeNanite.Expansion.csprojAssemblyReference.cache
+D:\projects-desktop\codestencil\code-nanites\zerasystems.expansion\src\Expansion\obj\Debug\ZeraSystems.CodeNanite.Expansion.frmSelectEntities.resources
+D:\projects-desktop\codestencil\code-nanites\zerasystems.expansion\src\Expansion\obj\Debug\ZeraSystems.CodeNanite.Expansion.csproj.GenerateResource.cache
+D:\projects-desktop\codestencil\code-nanites\zerasystems.expansion\src\Expansion\obj\Debug\ZeraSystems.CodeNanite.Expansion.csproj.CopyComplete
+D:\projects-desktop\codestencil\code-nanites\zerasystems.expansion\src\Expansion\obj\Debug\ZeraSystems.CodeNanite.Expansion.dll
+D:\projects-desktop\codestencil\code-nanites\zerasystems.expansion\src\Expansion\obj\Debug\ZeraSystems.CodeNanite.Expansion.pdb

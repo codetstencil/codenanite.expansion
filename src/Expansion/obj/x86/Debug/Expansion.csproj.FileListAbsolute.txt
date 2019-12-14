@@ -1,0 +1,7 @@
+D:\projects-desktop\Custom Stencils\build\ZeraSystems.CodeNanite.Expansion.dll
+D:\projects-desktop\Custom Stencils\build\ZeraSystems.CodeNanite.Expansion.pdb
+D:\projects-desktop\Custom Stencils\ZeraSystems.Expansion\source\obj\x86\Debug\ZeraSystems.CodeNanite.Expansion.frmSelectEntities.resources
+D:\projects-desktop\Custom Stencils\ZeraSystems.Expansion\source\obj\x86\Debug\Expansion.csproj.GenerateResource.Cache
+D:\projects-desktop\Custom Stencils\ZeraSystems.Expansion\source\obj\x86\Debug\Expansion.csproj.CoreCompileInputs.cache
+D:\projects-desktop\Custom Stencils\ZeraSystems.Expansion\source\obj\x86\Debug\ZeraSystems.CodeNanite.Expansion.dll
+D:\projects-desktop\Custom Stencils\ZeraSystems.Expansion\source\obj\x86\Debug\ZeraSystems.CodeNanite.Expansion.pdb

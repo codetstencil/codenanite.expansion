@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ZeraSystems.CodeNanite.Expansion</id>
+    <version>1.0</version>
+    <title>Expansion Assembly for CodeStencil</title>
+    <authors>ZERA System</authors>
+    <owners>ZERA System</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <icon>images\logo64x64.png</icon>
+    <projectUrl>https://www.codestencil.com/</projectUrl>
+    <description>This assembly contains the contracts for the interfaces used for the Microsoft Extensibilty Framework implementation in CodeStencil which allows extenal plugins development.</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>Tag1 Tag2</tags>
+  </metadata>
+</package>
