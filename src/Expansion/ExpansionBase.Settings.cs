@@ -127,6 +127,10 @@ namespace ZeraSystems.CodeNanite.Expansion
             return columns;
         }
 
+        /// <summary>Gets the columns from schema items.</summary>
+        /// <param name="columns">The columns.</param>
+        /// <param name="table">The table.</param>
+        /// <returns>IEnumerable&lt;ISchemaItem&gt;.</returns>
         public IEnumerable<ISchemaItem> GetColumnsFromSchemaItems(List<string> columns, string table)
         {
             var result = SchemaItem()

@@ -92,5 +92,9 @@ namespace ZeraSystems.CodeNanite.DevExtreme
         /// </summary>
         /// <value><c>true</c> if [updated by nanite]; otherwise, <c>false</c>.</value>
         public bool UpdatedByNanite { get; set; }
+
+        /// <summary>Gets or sets the help URL.</summary>
+        /// <value>The help URL.</value>
+        public string HelpUrl { get; set; }
     }
 }

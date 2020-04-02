@@ -1,13 +1,13 @@
 ﻿// ***********************************************************************
 // Assembly         : ZeraSystems.CodeNanite.Expansion
-// Author           : Ayodele-Desktop
+// Author           : Ayo Dahunsi
 // Created          : 12-07-2018
 //
 // Last Modified By : Ayodele-Desktop
 // Last Modified On : 01-03-2019
 // ***********************************************************************
 // <copyright file="ExpansionBase.Entities.cs" company="ZeraSystems Inc.">
-//     Copyright ©  2018
+//     Copyright © 2020
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
@@ -115,7 +115,6 @@ namespace ZeraSystems.CodeNanite.Expansion
                     .ToList();
             }
         }
-
 
         /// <summary>
         /// Gets the corresponding SchemaItem column based on the passed column name.
@@ -244,9 +243,12 @@ namespace ZeraSystems.CodeNanite.Expansion
                 .FirstOrDefault();
         }
 
+        /// <summary>Gets the lookup table label.</summary>
+        /// <param name="table">The table.</param>
+        /// <param name="foreignKey">The foreign key.</param>
+        /// <returns>  String representing the label of the lookup</returns>
         public string GetLookupTableLabel(string table, string foreignKey)
         {
-            //var lookupColumn = GetLookupColumn(table, foreignKey);
             var lookupTable = GetLookupTable(table, foreignKey);
             if (!lookupTable.IsBlank())
             {
@@ -270,6 +272,10 @@ namespace ZeraSystems.CodeNanite.Expansion
             return table + "." + GetLookupTableLabel(table, foreignKey);
         }
 
+        /// <summary>Gets the lookup display column.</summary>
+        /// <param name="table">The table.</param>
+        /// <param name="foreignKey">The foreign key.</param>
+        /// <returns>  The column used for displaying the lookup</returns>
         public string GetLookupDisplayColumn(string table, string foreignKey)
         {
             var lookupTable = GetLookupTable(table, foreignKey);
@@ -291,6 +297,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             return displayColumn;
         }
 
+        /// <summary>Gets the first string column in a lookup table.</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>  Label of the string column</returns>
         public string GetStringColumn(string table)
         {
             return SchemaItem()
@@ -299,27 +308,14 @@ namespace ZeraSystems.CodeNanite.Expansion
                 .FirstOrDefault();
         }
 
+        /// <summary>Gets the lookup display column with table name, e.g. myTable.myLookupColumn</summary>
+        /// <param name="table">The table.</param>
+        /// <param name="foreignKey">The foreign key.</param>
+        /// <returns>  String representing table.lookup column</returns>
         public string GetLookupDisplayColumnWithPath(string table, string foreignKey)
         {
             var lookupTable = GetLookupTable(table, foreignKey);
             return lookupTable + "." + GetLookupDisplayColumn(table, foreignKey);
-
-            //var lookupTable = GetLookupTable(table, foreignKey);
-            //var displayColumn = //GetLookupDisplayColumn(table, foreignKey);  //Use LookupDislayColumn
-            //    SchemaItem()
-            //        .Where(e => e.TableName == table && e.ColumnName == foreignKey && e.IsForeignKey)
-            //        .Select(e => e.LookupDisplayColumn)
-            //        .FirstOrDefault();
-
-            //if (displayColumn.IsBlank())
-            //    displayColumn = GetLookupTableLabel(table, foreignKey);     //Use Table Label Column
-            //if (displayColumn.IsBlank())
-            //    displayColumn = GetPrimaryKey(lookupTable);                 //Use Primary Key of lookup table
-
-            //if (!lookupTable.IsBlank())
-            //    return lookupTable + "." + displayColumn;
-            //else
-            //    return string.Empty;
         }
 
         /// <summary>
@@ -334,6 +330,11 @@ namespace ZeraSystems.CodeNanite.Expansion
         }
 
         #region Primary Key
+
+        /// <summary>Gets the table and primary key.
+        /// (table.primaryKey)</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>System.String.</returns>
         public string GetTableAndPrimaryKey(string table)
         {
             var primaryKey = GetPrimaryKey(table);
@@ -353,23 +354,36 @@ namespace ZeraSystems.CodeNanite.Expansion
                 .FirstOrDefault(); //?? string.Empty;
             return name;
         }
+
+        /// <summary>Gets the type of the primary key.</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>System.String.</returns>
         public string GetPrimaryKeyType(string table) => GetPrimaryKeyRow(table).ColumnType;
 
+        /// <summary>Gets the primary key row.</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>ISchemaItem.</returns>
         public ISchemaItem GetPrimaryKeyRow(string table)
         {
             var row = SchemaItem()
                 .FirstOrDefault(e => e.TableName.Singularize() == table.Singularize() && e.IsPrimaryKey);
             return row;
         }
-        #endregion
 
+        #endregion Primary Key
 
+        /// <summary>Returns a list of the sort columns.</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
         public List<ISchemaItem> GetSortColumns(string table)
         {
             return SchemaItem()
                 .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsSortColumn).ToList();
         }
 
+        /// <summary>Returns a list of the search columns.</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
         public List<ISchemaItem> GetSearchColumns(string table)
         {
             return SchemaItem()
@@ -387,11 +401,15 @@ namespace ZeraSystems.CodeNanite.Expansion
         {
             return schemaItem
                 .Where(e => !string.IsNullOrEmpty(e.ColumnType))
-                .Where(e => (e.RelatedTable == table ))
-                //.Where(e=> (IsTableEnabled(e.RelatedTable)) 
+                .Where(e => (e.RelatedTable == table))
+                //.Where(e=> (IsTableEnabled(e.RelatedTable))
                 .ToList();
         }
 
+        /// <summary>Returns the foreign keys in table as a List.</summary>
+        /// <param name="table">The table.</param>
+        /// <param name="allowPrimaryKeys">if set to <c>true</c> [allow primary keys].</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
         public List<ISchemaItem> GetForeignKeysInTable(string table, bool allowPrimaryKeys = false)
         {
             var result = GetForeignKeysInTable(_schemaItem, table, allowPrimaryKeys);
@@ -403,6 +421,11 @@ namespace ZeraSystems.CodeNanite.Expansion
             return result;
         }
 
+        /// <summary>Return the foreign keys in table as a List. You can pass your own specific list of SChema Items</summary>
+        /// <param name="schemaItem">The schema item.</param>
+        /// <param name="table">The table.</param>
+        /// <param name="allowPrimaryKeys">if set to <c>true</c> [allow primary keys].</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
         public List<ISchemaItem> GetForeignKeysInTable(List<ISchemaItem> schemaItem, string table, bool allowPrimaryKeys = false)
         {
             return schemaItem
@@ -461,6 +484,38 @@ namespace ZeraSystems.CodeNanite.Expansion
             return name.IsBlank() ? GetPrimaryKey(table) : name;
         }
 
+        /// <summary>Gets the original name of the table .</summary>
+        /// <param name="table">The table.</param>
+        /// <param name="allowNullReturn">if set to <c>true</c> [allow null return].</param>
+        /// <returns>System.String.</returns>
+        public string GetOriginalTableName(string table, bool allowNullReturn = false)
+        {
+            var name = _schemaItem
+                .Where(e => e.TableName == table && string.IsNullOrEmpty(e.ColumnType) )
+                .Select(e => e.OriginalName)
+                .FirstOrDefault();
+
+            if (name.IsBlank() && allowNullReturn)
+                return name;
+
+            return name.IsBlank() ? GetTable(table) : name;
+        }
+
+
+        /// <summary>Gets the column attribute (Data Annotation) of passed column.</summary>
+        /// <param name="column">The column.</param>
+        /// <param name="table">The table.</param>
+        /// <returns>System.String.</returns>
+        public string GetColumnAttribute(string column, string table)
+        {
+            var name = _schemaItem
+                .Where(e => e.TableName == table && e.ColumnName == column )
+                .Select(e => e.ColumnAttribute)
+                .FirstOrDefault();
+            return name.IsBlank() ? string.Empty : name;
+        }
+
+
         /// <summary>
         /// Returns a table object ( row from SchemaItems) to give access to the columns in that table header
         /// </summary>
@@ -498,6 +553,9 @@ namespace ZeraSystems.CodeNanite.Expansion
                 .ToList();
         }
 
+        /// <summary>Gets the name of the related column.</summary>
+        /// <param name="column">The column.</param>
+        /// <returns>  String representing the table.column</returns>
         public string GetRelatedColumnName(IHtmlColumns column)
         {
             if (column.IsForeignKey && (column.RelatedTable == column.TableName))
@@ -556,6 +614,10 @@ namespace ZeraSystems.CodeNanite.Expansion
                 .Where(s => string.IsNullOrEmpty(s.ColumnType));
         }
 
+        /// <summary>Determines whether a table is enabled</summary>
+        /// <param name="name">The name.</param>
+        /// <returns>
+        ///   <c>true</c> if table enabled otherwise, <c>false</c>.</returns>
         public bool IsTableEnabled(string name)
         {
             var result = false;

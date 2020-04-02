@@ -13,8 +13,8 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Design;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -32,16 +32,18 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// The expander
         /// </summary>
         private List<IExpander> _expander;
+
         /// <summary>
         /// The schema item
         /// </summary>
         private List<ISchemaItem> _schemaItem;
+
         /// <summary>
         /// The expanded text
         /// </summary>
         public StringBuilder ExpandedText = new StringBuilder();
 
-        public  StringBuilder _snippet = new StringBuilder();
+        public StringBuilder _snippet = new StringBuilder();
 
         #region AppendText
 
@@ -145,7 +147,6 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>Cloned object</returns>
         public List<ISchemaItem> CloneSchemaItems(IList<ISchemaItem> schemaItems) => schemaItems.ToList();
 
-
         #region Project Settings
 
         /// <summary>
@@ -203,6 +204,11 @@ namespace ZeraSystems.CodeNanite.Expansion
         #endregion Project Settings
 
         #region BuildSnippet
+
+        /// <summary>Builds the snippet by adding passed text to the private StringBuilder object -  _snippet.</summary>
+        /// <param name="text">The text.</param>
+        /// <param name="indent">  Indentation to use</param>
+        /// <param name="noCarriage">if set to <c>true</c> [no carriage].</param>
         public void BuildSnippet(string text, int indent = 8, bool noCarriage = false)
         {
             if (text == null)
@@ -210,10 +216,15 @@ namespace ZeraSystems.CodeNanite.Expansion
             else
                 if (noCarriage)
                     _snippet.Append(Indent(indent) + text);
-                else
-                    _snippet.Append(Indent(indent) + text.AddCarriage());
+            else
+                _snippet.Append(Indent(indent) + text.AddCarriage());
         }
 
+        /// <summary>Builds the snippet by adding passed text to your passed StringBuilder object</summary>
+        /// <param name="stringsBuilder">The strings builder.</param>
+        /// <param name="text">The text.</param>
+        /// <param name="indent">The indentation to use.</param>
+        /// <param name="noCarriage">if set to <c>true</c> [no carriage].</param>
         public void BuildSnippet(StringBuilder stringsBuilder, string text, int indent = 8, bool noCarriage = false)
         {
             if (text == null)
@@ -223,8 +234,11 @@ namespace ZeraSystems.CodeNanite.Expansion
                 stringsBuilder.Append(Indent(indent) + text);
             else
                 stringsBuilder.Append(Indent(indent) + text.AddCarriage());
-
         }
+
+        /// <summary>By Default, truncates all text currently saved in the StringBuilder object - _snippet.</summary>
+        /// <param name="canClear">if set to <c>true</c> [default], truncates existing text, if false, will return currently saved text.</param>
+        /// <returns>Null, if text is truncated, else returns saved text.</returns>
         public string BuildSnippet(bool canClear = true)
         {
             var result = _snippet.ToString();
@@ -233,26 +247,54 @@ namespace ZeraSystems.CodeNanite.Expansion
             return result;
         }
 
+        /// <summary>Builds the snippet with the items in the passed list..</summary>
+        /// <param name="list">The list.</param>
+        /// <param name="indent">The indent.</param>
         public void BuildSnippet(List<string> list, int indent)
         {
             foreach (var item in list)
                 BuildSnippet(item, indent);
         }
-        #endregion
+
+        #endregion BuildSnippet
+
+        /// <summary>Re aligns the passed text to use the passed indent.</summary>
+        /// <param name="text">The text.</param>
+        /// <param name="indent">The indent.</param>
+        /// <returns>Realigned text</returns>
+        public string AlignIndent(string text, int indent)
+        {
+            var alignedLines = string.Empty;
+            var numLines = text.Split('\n').Length;
+            using (var reader = new StringReader(text))
+            {
+                var count = 0;
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    count++;
+                    if (count < numLines)
+                        alignedLines += (Indent(indent) + line.Trim()).AddCarriage();
+                    else
+                        alignedLines += (Indent(indent) + line.Trim());
+                }
+            }
+            return alignedLines;
+        }
 
         public string GetNullSign(ISchemaItem item)
         {
-            return 
-                item.AllowDbNull && (item.ColumnType == "DateTime" || item.ColumnType == "int") && 
+            return
+                item.AllowDbNull && (item.ColumnType == "DateTime" || item.ColumnType == "int") &&
                 !item.IsPrimaryKey //disallow nullablity for primary keys
                     ? "?" : string.Empty;
         }
 
         public string StartBrace(int indent = 4) => Indent(indent) + "{";
+
         public string EndBrace(int indent = 4) => Indent(indent) + "}";
 
         public virtual string NavigationLabel() => "Navigation";
-
     }
 
     /// <exclude />
@@ -272,8 +314,5 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <param name="obj">The <see cref="T:System.Object" /> for which a hash code is to be returned.</param>
         /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
         public int GetHashCode(ISchemaItem obj) => obj.SchemaItemId;
-
-
-
     }
 }

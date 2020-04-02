@@ -105,6 +105,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             //
         }
 
+        /// <summary>Gets the self related object.</summary>
+        /// <param name="column">The column.</param>
+        /// <returns>System.String.</returns>
         public string GetSelfRelatedObject(ISchemaItem column)
         {
             var result = column.RelatedTable;
@@ -113,6 +116,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             return result;
         }
 
+        /// <summary>Gets the name of the self related column.</summary>
+        /// <param name="column">The column.</param>
+        /// <returns>System.String.</returns>
         public string GetSelfRelatedColumnName(ISchemaItem column)
         {
             return GetSelfRelatedObject(column) + "." + column.ColumnName;
@@ -180,6 +186,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             AppendText(Indent(4) + "</dl>");
         }
 
+        /// <summary>Dls the tag details.</summary>
+        /// <param name="table">The table.</param>
+        /// <param name="columns">The columns.</param>
         public void DlTagDetails(string table, List<string> columns)
         {
             //var columns = schemaColumns ?? GetColumns(table);
@@ -347,6 +356,11 @@ namespace ZeraSystems.CodeNanite.Expansion
             AppendText(Indent(indent + 4) + "<span asp-validation-for=" + AddQuotes(column) + " class=" + AddQuotes("text-danger") + span);
         }
 
+        /// <summary>Gets a CSHTML header.</summary>
+        /// <param name="headerType">Type of the header.</param>
+        /// <param name="table">The table.</param>
+        /// <param name="nameSpace">The name space.</param>
+        /// <returns>System.String.</returns>
         public string CshtmlHeader(string headerType, string table, string nameSpace)
         {
             BuildSnippet(null);
@@ -363,31 +377,68 @@ namespace ZeraSystems.CodeNanite.Expansion
             return BuildSnippet();
         }
 
+        /// <summary>Gets the HTML string.</summary>
+        /// <param name="leftString">The left string.</param>
+        /// <param name="rightString">The right string.</param>
+        /// <param name="tag">The tag.</param>
+        /// <returns>System.String.</returns>
         public string GetHtmlString(string leftString, string rightString, string tag)
         {
             return (leftString + "=" + rightString.AddQuotes()).Tag(tag);
         }
 
+        /// <summary>Gets the HTML string.</summary>
+        /// <param name="leftString">The left string.</param>
+        /// <param name="rightString">The right string.</param>
+        /// <returns>System.String.</returns>
         public string GetHtmlString(string leftString, string rightString)
         {
             return (leftString + "=" + rightString.AddQuotes());
         }
 
+        /// <summary>Gets the HTML string.</summary>
+        /// <param name="leftString">The left string.</param>
+        /// <param name="rightString">The right string.</param>
+        /// <param name="leftString2">The left string2.</param>
+        /// <param name="rightString2">The right string2.</param>
+        /// <returns>System.String.</returns>
         public string GetHtmlString(string leftString, string rightString, string leftString2, string rightString2)
         {
             return ( GetHtmlString(leftString, rightString) + " " + GetHtmlString(leftString2, rightString2));
         }
 
+        /// <summary>Gets the HTML string.</summary>
+        /// <param name="leftString">The left string.</param>
+        /// <param name="rightString">The right string.</param>
+        /// <param name="leftString2">The left string2.</param>
+        /// <param name="rightString2">The right string2.</param>
+        /// <param name="leftString3">The left string3.</param>
+        /// <param name="rightString3">The right string3.</param>
+        /// <returns>System.String.</returns>
         public string GetHtmlString(string leftString, string rightString, string leftString2, string rightString2, string leftString3, string rightString3)
         {
             return (GetHtmlString(leftString, rightString,leftString2,rightString2) + " " + GetHtmlString(leftString3, rightString3));
         }
 
+        /// <summary>Gets the HTML string.</summary>
+        /// <param name="leftString">The left string.</param>
+        /// <param name="rightString">The right string.</param>
+        /// <param name="leftString2">The left string2.</param>
+        /// <param name="rightString2">The right string2.</param>
+        /// <param name="leftString3">The left string3.</param>
+        /// <param name="rightString3">The right string3.</param>
+        /// <param name="leftString4">The left string4.</param>
+        /// <param name="rightString4">The right string4.</param>
+        /// <returns>System.String.</returns>
         public string GetHtmlString(string leftString, string rightString, string leftString2, string rightString2, string leftString3, string rightString3, string leftString4, string rightString4)
         {
             return (GetHtmlString(leftString, rightString, leftString2, rightString2) + " " + GetHtmlString(leftString3, rightString3, leftString4, rightString4));
         }
 
+        /// <summary>Gets the heading.</summary>
+        /// <param name="column">The column.</param>
+        /// <param name="isPlain">if set to <c>true</c> [is plain].</param>
+        /// <returns>System.String.</returns>
         public string GetHeading(ISchemaItem column, bool isPlain=false)
         {
             if (!isPlain)
@@ -404,6 +455,10 @@ namespace ZeraSystems.CodeNanite.Expansion
 
         }
 
+        /// <summary>Returns a list of HTML columns.</summary>
+        /// <param name="schemaItems">The schema items.</param>
+        /// <param name="isPlain">if set to <c>true</c> [is plain].</param>
+        /// <returns>List&lt;IHtmlColumns&gt;.</returns>
         public List<IHtmlColumns> GetHtmlColumns(IEnumerable<ISchemaItem> schemaItems, bool isPlain=false)
         {
             var columns = new List<IHtmlColumns>();
