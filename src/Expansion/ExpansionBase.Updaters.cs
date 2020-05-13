@@ -13,6 +13,8 @@
 // ***********************************************************************
 using System;
 using System.Linq;
+using System.Windows.Forms;
+using AutoMapper;
 using ZeraSystems.CodeNanite.DevExtreme;
 using ZeraSystems.CodeStencil.Contracts;
 
@@ -23,6 +25,7 @@ namespace ZeraSystems.CodeNanite.Expansion
     /// </summary>
     public abstract partial class ExpansionBase
     {
+
         #region Expander
 
         /// <summary>
@@ -31,15 +34,38 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <param name="expander">The expander.</param>
         public void UpdateExpander(IExpander expander)
         {
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<IExpander, IExpander>());
+            var mapper = config.CreateMapper();
+
             var row = _expander
-                .Where((x => x.ExpansionLabel == expander.ExpansionLabel))
+                .Where((x => x.ExpansionLabel.Trim() == expander.ExpansionLabel))
                 .FirstOrDefault();
 
-            if (row != null && row.UpdatedByNanite) //We already have a matching item
-                _expander.Remove(row);
+            if (row != null) //We have a matching item
+            {
+               var pos = _expander.IndexOf(row);
 
-            expander.UpdatedByNanite = true;
-            _expander.Add(expander);
+               row = mapper.Map<IExpander>(expander);
+               row.UpdatedByNanite = true;
+               _expander[pos] = row;
+            }
+            else
+            {
+                IExpander expanderObject = new ExpanderObject
+                {
+
+                    ExpansionLabel = expander.ExpansionLabel,
+                    ExpansionString = expander.ExpansionString,
+                    ExpansionValue = expander.ExpansionValue,
+                    IsMultiple = expander.IsMultiple,
+                    Delimiter = expander.Delimiter,
+                    UpdatedByNanite = true
+                };
+                //expanderObject = mapper.Map<IExpander>(expander);
+                //expanderObject.UpdatedByNanite = true;
+
+                _expander.Add(expanderObject);
+            }
         }
 
         /// <summary>
@@ -69,15 +95,36 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <param name="delimiter">The delimiter.</param>
         public void ExpanderUpdater(string expansionString, string expansionLabel, int expansionValue, bool isMultiple = false, string delimiter = "")
         {
-            var expander = new ExpanderObject
+            IExpander expanderObject;
+            if (ExpansionStringExists(expansionLabel))
             {
-                ExpansionLabel = expansionLabel,
-                ExpansionString = expansionString,
-                ExpansionValue = expansionValue,
-                IsMultiple = isMultiple,
-                Delimiter = delimiter
-            };
-            UpdateExpander(expander);
+                expanderObject = GetExpanderObject(expansionLabel);
+                expanderObject.ExpansionString = expansionString;
+                expanderObject.ExpansionLabel = expansionLabel;
+                expanderObject.IsMultiple = isMultiple;
+                expanderObject.Delimiter = delimiter;
+            }
+            else
+            {
+                expanderObject = new ExpanderObject
+                {
+                    ExpansionString = expansionString,
+                    ExpansionLabel = expansionLabel,
+                    IsMultiple = isMultiple,
+                    Delimiter = delimiter
+                };
+            }
+
+            //var expander = new ExpanderObject
+            //{
+            //    ExpansionLabel = expansionLabel,
+            //    ExpansionString = expansionString,
+            //    ExpansionValue = expansionValue,
+            //    IsMultiple = isMultiple,
+            //    Delimiter = delimiter
+            //};
+            UpdateExpander(expanderObject);
+
         }
 
         #endregion Expander

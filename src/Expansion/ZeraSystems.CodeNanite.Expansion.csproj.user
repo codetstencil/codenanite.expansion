@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartAction>Program</StartAction>
+    <StartArguments>/DebugFile="D:\projects-desktop\codestencil\custom-stencils\zerasystems.stencils\default\src\CodeStencil.Debug.xml"</StartArguments>
+    <StartProgram>D:\projects-desktop\build\CodeStencil\Debug\CodeStencil.exe</StartProgram>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartAction>Program</StartAction>
+    <StartProgram>D:\projects-desktop\build\CodeStencil\Debug\CodeStencil.exe</StartProgram>
+    <StartArguments>/DebugFile="D:\projects-desktop\codestencil\custom-stencils\zerasystems.stencils\default\src\CodeStencil.Debug.xml"</StartArguments>
+    <StartWorkingDirectory>D:\projects-desktop\codestencil\custom-stencils\zerasystems.stencils\default\build</StartWorkingDirectory>
+  </PropertyGroup>
+</Project>

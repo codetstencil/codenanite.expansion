@@ -12,12 +12,17 @@
 // <summary></summary>
 // ***********************************************************************
 using System;
+using System.CodeDom.Compiler;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
+using System.Xml;
+using AngleSharp.Html;
+using AngleSharp.Html.Parser;
 using Pluralize.NET;
 using ZeraSystems.CodeStencil.Contracts;
 
@@ -115,6 +120,27 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>Indented string</returns>
         public virtual string Indent(int indent) => string.Empty.PadLeft(indent);
 
+        public string Indent(string text, int indent=4)
+        {
+            var lines = string.Empty;
+            var numLines = text.Split('\n').Length;
+            using (var reader = new StringReader(text))
+            {
+                var count = 0;
+                string line;
+                while ((line = reader.ReadLine()) != null)
+                {
+                    count++;
+                    if (count < numLines)
+                        lines += (Indent(indent)).AddCarriage();
+                    else
+                        lines += (Indent(indent));
+                }
+            }
+            return lines;
+        }
+
+
         /// <summary>
         /// Initializes SchemaItems, Expanders passed from CodeStencil to local fields.
         /// </summary>
@@ -158,7 +184,23 @@ namespace ZeraSystems.CodeNanite.Expansion
         {
             var text = _expander.Where(e => e.ExpansionLabel == label).Select(x => x.ExpansionString).FirstOrDefault();
             return text;
-            //return text.FirstOrDefault();
+        }
+
+        public IExpander GetExpanderObject(string label)
+        {
+            //if (ExpansionStringExists(label))
+            return _expander.FirstOrDefault(e => e.ExpansionLabel == label);
+            //return null;
+        }
+
+        /// <summary>Checks to see if an Expansion string exists.</summary>
+        /// <param name="label">The expansion string we are checking</param>
+        /// <returns>
+        ///   <c>true</c> if the strin exists, <c>false</c> otherwise.</returns>
+        public bool ExpansionStringExists(string label)
+        {
+            var expansionString = _expander.FirstOrDefault(e => e.ExpansionLabel == label);
+            return expansionString != null;
         }
 
         /// <summary>
@@ -282,6 +324,35 @@ namespace ZeraSystems.CodeNanite.Expansion
             return alignedLines;
         }
 
+        public  string FormatHtml(string input, int indent=4)
+        {
+            var parser = new HtmlParser();
+            var document = parser.ParseDocument(input);
+            using (var writer = new StringWriter())
+            {
+                document.ToHtml(writer, new PrettyMarkupFormatter
+                {
+                    Indentation = "\t",
+                    NewLine = "\n"
+                });
+                var formattedHtml = writer.ToString();
+                formattedHtml = RemoveOuterTags(formattedHtml);
+                return Indent(indent) + formattedHtml.Replace("\n", "\n" + Indent(indent));
+            }
+
+            string RemoveOuterTags(string s)
+            {
+                var result = s;
+                var tagsToRemove = new string[] { "<html>", "</html>", "<head></head>", "<body>", "</body>" };
+                foreach (var tag in tagsToRemove) 
+                    result = result.Replace(tag, string.Empty);
+
+                result = Regex.Replace(result, @"^\s*$[\r\n]*", string.Empty, RegexOptions.Multiline);
+                return result;
+            }
+
+        }
+
         public string GetNullSign(ISchemaItem item)
         {
             return
@@ -301,7 +372,7 @@ namespace ZeraSystems.CodeNanite.Expansion
     public class SchemaItemComparer : IEqualityComparer<ISchemaItem>
     {
         /// <summary>
-        /// Equalses the specified p1.
+        /// Equals the specified p1.
         /// </summary>
         /// <param name="p1">The p1.</param>
         /// <param name="p2">The p2.</param>
