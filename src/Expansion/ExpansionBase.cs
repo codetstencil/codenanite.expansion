@@ -85,6 +85,17 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// This overload will reformat the passed in text by:
         /// (a) Starting it on a new line;
         /// (b) Indenting every line with the passed indent
+        /// </summary>
+        /// <param name="text">String to add</param>
+        /// <param name="indent"># of spaces to indent by method</param>
+        public virtual void AppendText(string text, int indent) => AppendText(text, indent, Constants.StrLineFeed);
+
+
+        /// <summary>
+        /// Add text to the ExpandText StringBuilder object.
+        /// This overload will reformat the passed in text by:
+        /// (a) Starting it on a new line;
+        /// (b) Indenting every line with the passed indent
         /// (c) Add a carriage return so that any subsequently added text will begin on a new line
         /// </summary>
         /// <param name="text">String to add</param>
@@ -108,7 +119,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             var rows = text.Split(new[] { linefeed }, StringSplitOptions.None);
             foreach (string row in rows)
                 ExpandedText.Append(indent + row);
-            AppendText(string.Empty);
+
+            if (!linefeed.IsBlank())
+                AppendText(string.Empty);
         }
 
         #endregion AppendText
@@ -324,7 +337,12 @@ namespace ZeraSystems.CodeNanite.Expansion
             return alignedLines;
         }
 
-        public  string FormatHtml(string input, int indent=4)
+        /// <summary>Formats an string containing HTML.
+        /// tags</summary>
+        /// <param name="input">The string to format</param>
+        /// <param name="indent">The indent.</param>
+        /// <returns>  Formatted string</returns>
+        public string FormatHtml(string input, int indent=4)
         {
             var parser = new HtmlParser();
             var document = parser.ParseDocument(input);

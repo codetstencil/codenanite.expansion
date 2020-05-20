@@ -15,6 +15,7 @@ using Pluralize.NET;
 using System;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using ZeraSystems.CodeStencil.Contracts;
 
 namespace ZeraSystems.CodeNanite.Expansion
 {
@@ -142,6 +143,18 @@ namespace ZeraSystems.CodeNanite.Expansion
                 objResult = (T)bf.Deserialize(ms);
             }
             return objResult;
+        }
+
+        public static string SelfReferenceColumn(this ISchemaItem item)
+        {
+            if (item.TableName != item.RelatedTable) return string.Empty;
+            return item.ColumnName + "Navigation";
+        }
+
+        public static string SelfRefNavProperty(this ISchemaItem item)
+        {
+            if (item.TableName != item.RelatedTable) return string.Empty;
+            return "Inverse" + item.ColumnName + "Navigation";
         }
     }
 }

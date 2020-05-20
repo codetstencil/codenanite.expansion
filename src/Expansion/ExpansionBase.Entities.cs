@@ -14,6 +14,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using ZeraSystems.CodeStencil.Contracts;
 
@@ -245,10 +246,12 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>System.String.</returns>
         public string GetLookupTable(string table, string foreignKey)
         {
-            return SchemaItem()
+            var result =  SchemaItem()
                 .Where(e => e.TableName.Singularize() == table.Singularize() && e.ColumnName == foreignKey && e.IsForeignKey)
                 .Select(e => e.RelatedTable)
                 .FirstOrDefault();
+            return result;
+            //return CreateRelatedTablePropertyName(foreignKey, table);
         }
 
         /// <summary>Gets the lookup table label.</summary>
@@ -302,7 +305,7 @@ namespace ZeraSystems.CodeNanite.Expansion
                 displayColumn = GetLookupTableLabel(table, foreignKey); //Use Table Label Column
 
             if (displayColumn.IsBlank())
-                displayColumn = GetStringColumn(lookupTable); //Use the first strin column of lookup table
+                displayColumn = GetStringColumn(lookupTable); //Use the first string column of lookup table
 
             if (displayColumn.IsBlank()) displayColumn = GetPrimaryKey(lookupTable); //Use Primary Key of lookup table
 
@@ -327,7 +330,9 @@ namespace ZeraSystems.CodeNanite.Expansion
         public string GetLookupDisplayColumnWithPath(string table, string foreignKey)
         {
             var lookupTable = GetLookupTable(table, foreignKey);
-            return lookupTable + "." + GetLookupDisplayColumn(table, foreignKey);
+            var result = CreateRelatedTablePropertyName(foreignKey, table) + "." + GetLookupDisplayColumn(table, foreignKey);
+            //var result = lookupTable + "." + GetLookupDisplayColumn(table, foreignKey);
+            return result;
         }
 
         /// <summary>
@@ -421,6 +426,37 @@ namespace ZeraSystems.CodeNanite.Expansion
                 //.Where(e=> (IsTableEnabled(e.RelatedTable))
                 .ToList();
         }
+
+        public List<ISchemaItem> GetNavProperties(string table) => GetNavProperties(SchemaItem().ToList(), table);
+
+        public List<ISchemaItem> GetNavProperties(List<ISchemaItem> schemaItem, string table)
+        {
+            var result = schemaItem
+                .Where(e => ((e.RelatedTable == table && e.ColumnType != null) || 
+                             (e.TableName == table && e.RelatedTable != null)))
+                .Where(e => e.OriginalName == e.LookupColumn)
+                .ToList();
+
+            if (!result.Any())
+            {
+                result = schemaItem
+                    .Where(e => ((e.RelatedTable == table && e.ColumnType != null) ||
+                                 (e.TableName == table && e.RelatedTable != null)))
+                    .ToList();
+            }
+
+            return result;
+        }
+
+        public List<ISchemaItem> GetSelfJoinColumns(string table) => GetSelfJoinColumns(SchemaItem().ToList(), table);
+
+        public List<ISchemaItem> GetSelfJoinColumns(List<ISchemaItem> schemaItem, string table)
+        {
+            return schemaItem
+                .Where(e => (e.TableName == table && e.RelatedTable == table))
+                .ToList();
+        }
+
 
         /// <summary>Returns the foreign keys in table as a List.</summary>
         /// <param name="table">The table.</param>
@@ -577,26 +613,46 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>  String representing the table.column</returns>
         public string GetRelatedColumnName(IHtmlColumns column)
         {
+            //var columnName = CreateRelatedTablePropertyName(column.ColumnName, column.TableName);
+            var columnName = column.ColumnName;
             if (column.IsForeignKey && (column.RelatedTable == column.TableName))
             {
-                return column.TableName + "." + column.ColumnName + NavigationLabel();
+                return column.TableName + "." + columnName + NavigationLabel();
             }
             else if (column.IsForeignKey)
             {
-                return column.TableName + "." + GetLookupDisplayColumnWithPath(column.TableName, column.ColumnName);
+                return column.TableName + "." + GetLookupDisplayColumnWithPath(column.TableName, columnName);
             }
             else
             {
-                return column.TableName + "." + column.ColumnName;
+                return column.TableName + "." + columnName;
             }
         }
 
+        public string CreateTablePropertyName(ISchemaItem item)
+        {
+            if (item.ColumnName == item.LookupColumn)
+                return item.RelatedTable;
+
+            if (item.ColumnName.ToLower().Contains("id") &&
+                item.ColumnName.ToLower().Substring(item.ColumnName.Length - 2) == "id")
+                return Regex.Replace(item.ColumnName, "id", string.Empty, RegexOptions.IgnoreCase);
+
+            return item.RelatedTable;
+        }
+
+        public string CreateRelatedTablePropertyName(string column, string table)
+        {
+            var schemaItem = SchemaItem().FirstOrDefault(e => e.TableName == table && e.ColumnName == column);
+            return schemaItem != null ? CreateTablePropertyName(schemaItem) : column;
+        }
+
         /// <summary>Determines whether primary key is in related tables</summary>
-        /// <param name="table">The table.</param>
-        /// <param name="targetTable">The target table.</param>
-        /// <returns>
-        ///   <c>true</c> if [is primary in related] [the specified table]; otherwise, <c>false</c>.</returns>
-        public bool IsPrimaryInRelated(string table, string targetTable)
+            /// <param name="table">The table.</param>
+            /// <param name="targetTable">The target table.</param>
+            /// <returns>
+            ///   <c>true</c> if [is primary in related] [the specified table]; otherwise, <c>false</c>.</returns>
+            public bool IsPrimaryInRelated(string table, string targetTable)
         {
             var result =
                 SchemaItem()
