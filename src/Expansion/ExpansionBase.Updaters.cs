@@ -15,7 +15,6 @@ using System;
 using System.Linq;
 using System.Windows.Forms;
 using AutoMapper;
-using ZeraSystems.CodeNanite.DevExtreme;
 using ZeraSystems.CodeStencil.Contracts;
 
 namespace ZeraSystems.CodeNanite.Expansion

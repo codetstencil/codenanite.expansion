@@ -11,9 +11,10 @@
 // </copyright>
 // <summary></summary>
 // ***********************************************************************
+
 using ZeraSystems.CodeStencil.Contracts;
 
-namespace ZeraSystems.CodeNanite.DevExtreme
+namespace ZeraSystems.CodeNanite.Expansion
 {
     /// <summary>
     /// Class ExpanderObject.
