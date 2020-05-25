@@ -15,7 +15,6 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 using ZeraSystems.CodeStencil.Contracts;
 
 namespace ZeraSystems.CodeNanite.Expansion
@@ -25,14 +24,110 @@ namespace ZeraSystems.CodeNanite.Expansion
     /// </summary>
     public abstract partial class ExpansionBase
     {
+        #region Primary Key
+
         /// <summary>
-        /// Schema Items.
+        /// Get the primary key of a table
         /// </summary>
-        /// <returns>IEnumerable&lt;ISchemaItem&gt;.</returns>
-        private IEnumerable<ISchemaItem> SchemaItem()
+        /// <param name="table">Table we need primary key for</param>
+        /// <returns>Primary Key</returns>
+        public string GetPrimaryKey(string table)
         {
-            Debug.Assert(_schemaItem != null);
-            return _schemaItem;
+            string name = SchemaItem()
+                .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsPrimaryKey)
+                .Select(e => e.ColumnName)
+                .FirstOrDefault(); //?? string.Empty;
+            return name;
+        }
+
+        /// <summary>Gets the primary key row.</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>ISchemaItem.</returns>
+        public ISchemaItem GetPrimaryKeyRow(string table)
+        {
+            ISchemaItem row = SchemaItem()
+                .FirstOrDefault(e => e.TableName.Singularize() == table.Singularize() && e.IsPrimaryKey);
+            return row;
+        }
+
+        /// <summary>Gets the type of the primary key.</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>System.String.</returns>
+        public string GetPrimaryKeyType(string table) => GetPrimaryKeyRow(table).ColumnType;
+
+        /// <summary>Gets the table and primary key.
+        /// (table.primaryKey)</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>System.String.</returns>
+        public string GetTableAndPrimaryKey(string table)
+        {
+            string primaryKey = GetPrimaryKey(table);
+            return !primaryKey.IsBlank() ? table + "." + primaryKey : string.Empty;
+        }
+
+        #endregion Primary Key
+
+        /// <summary>
+        /// Struct containing actions flags
+        /// </summary>
+        public struct Actions
+        {
+            /// <summary>
+            /// The delete
+            /// </summary>
+            public bool Delete;
+
+            /// <summary>
+            /// The get
+            /// </summary>
+            public bool Get;
+
+            /// <summary>
+            /// The post
+            /// </summary>
+            public bool Post;
+
+            /// <summary>
+            /// The put
+            /// </summary>
+            public bool Put;
+        }
+
+        /// <summary>
+        ///   <para>
+        ///  Creates the name of the related table property.
+        /// </para>
+        ///   <para>When the table row object cannot be passed, passing the table and column name enables CreateTablePropertyName() to be called.</para>
+        /// </summary>
+        /// <param name="column">The column.</param>
+        /// <param name="table">The table.</param>
+        /// <returns>System.String.</returns>
+        public string CreateRelatedTablePropertyName(string column, string table)
+        {
+            ISchemaItem schemaItem = SchemaItem().FirstOrDefault(e => e.TableName == table && e.ColumnName == column);
+            return schemaItem != null ? CreateTablePropertyName(schemaItem) : column;
+        }
+
+        /// <summary>Creates the name of the table property.</summary>
+        /// <param name="item">The row/record that represents the Table object</param>
+        /// <returns>
+        ///   <para>
+        ///  If "id" is part of the name it is removed. e.g. "SupportStaffId" becomes "SupportStaff", otherwise returns the Related Table name.</para>
+        /// </returns>
+        public string CreateTablePropertyName(ISchemaItem item)
+        {
+            if (item.ColumnName == item.LookupColumn)
+            {
+                return item.RelatedTable;
+            }
+
+            if (item.ColumnName.ToLower().Contains("id") &&
+                item.ColumnName.ToLower().Substring(item.ColumnName.Length - 2) == "id")
+            {
+                return Regex.Replace(item.ColumnName, "id", string.Empty, RegexOptions.IgnoreCase);
+            }
+
+            return item.RelatedTable;
         }
 
         /// <summary>
@@ -42,8 +137,8 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>Actions.</returns>
         public Actions GetActions(string theTable)
         {
-            var action = new Actions();
-            var table = GetTableObject(theTable);
+            Actions action = new Actions();
+            ISchemaItem table = GetTableObject(theTable);
             if (table != null)
             {
                 action.Get = table.CanGet;
@@ -54,31 +149,18 @@ namespace ZeraSystems.CodeNanite.Expansion
             return action;
         }
 
-        /// <summary>Gets the columns excluding calculated columns.</summary>
+        /// <summary>Gets the column attribute (Data Annotation) of passed column.</summary>
+        /// <param name="column">The column.</param>
         /// <param name="table">The table.</param>
-        /// <returns>List&lt;ISchemaItem&gt;.</returns>
-        public List<ISchemaItem> GetColumnsExCalculated(string table)
+        /// <returns>System.String.</returns>
+        public string GetColumnAttribute(string column, string table)
         {
-            //return GetColumns(_schemaItem, table, onlyIsChecked, excludeColumn);
-            return GetColumns(_schemaItem, table, false, null, true);
+            string name = _schemaItem
+                .Where(e => e.TableName == table && e.ColumnName == column)
+                .Select(e => e.ColumnAttribute)
+                .FirstOrDefault();
+            return name.IsBlank() ? string.Empty : name;
         }
-
-        /// <summary>
-        /// Returns columns in the passed table as a List Collection
-        /// </summary>
-        /// <param name="table">Table we need columns for</param>
-        /// <param name="onlyIsChecked">If TRUE is passed (which is default), indicates that only columns checked on the Global Schema grid are returned</param>
-        /// <param name="excludeColumn">If we want to exclude a specific column</param>
-        /// <returns>Returned List of Columns</returns>
-        public List<ISchemaItem> GetColumns(string table, bool onlyIsChecked = true, string excludeColumn = null)
-        {
-            return GetColumns(_schemaItem, table, onlyIsChecked, excludeColumn);
-        }
-
-        //public List<ISchemaItem> GetColumns(string table, bool onlyIsChecked = true, bool noComputed = false)
-        //{
-        //    return GetColumns(_schemaItem, table, onlyIsChecked, null, noComputed);
-        //}
 
         /// <summary>
         /// Gets a List of columns for passed table.
@@ -122,16 +204,15 @@ namespace ZeraSystems.CodeNanite.Expansion
         }
 
         /// <summary>
-        /// Gets the corresponding SchemaItem column based on the passed column name.
+        /// Returns columns in the passed table as a List Collection
         /// </summary>
-        /// <param name="column">The name of the column</param>
-        /// <param name="table">The table column belongs to</param>
-        /// <returns>SchemaItem column row</returns>
-        public ISchemaItem GetSchemaItemColumn(string column, string table)
+        /// <param name="table">Table we need columns for</param>
+        /// <param name="onlyIsChecked">If TRUE is passed (which is default), indicates that only columns checked on the Global Schema grid are returned</param>
+        /// <param name="excludeColumn">If we want to exclude a specific column</param>
+        /// <returns>Returned List of Columns</returns>
+        public List<ISchemaItem> GetColumns(string table, bool onlyIsChecked = true, string excludeColumn = null)
         {
-            var schemaItemColumn = SchemaItem()
-                .FirstOrDefault(x => (x.ColumnName == column.StripCarriage() && x.TableName == table.StripCarriage()));
-            return schemaItemColumn;
+            return GetColumns(_schemaItem, table, onlyIsChecked, excludeColumn);
         }
 
         /// <summary>
@@ -142,13 +223,13 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>List&lt;ISchemaItem&gt;.</returns>
         public List<ISchemaItem> GetColumnsAndNavigation(string table, bool onlyIscChecked = true)
         {
-            var columns = GetColumns(table, false);
+            List<ISchemaItem> columns = GetColumns(table, false);
 
             // Get primary key
-            var primaryKey = _schemaItem
+            ISchemaItem primaryKey = _schemaItem
                 .FirstOrDefault(e => (e.TableName == table && e.IsPrimaryKey));
 
-            var list = new List<ISchemaItem>();
+            List<ISchemaItem> list = new List<ISchemaItem>();
             if (primaryKey != null)
             {
                 list = _schemaItem
@@ -162,7 +243,7 @@ namespace ZeraSystems.CodeNanite.Expansion
             {
                 //return columns.Concat(list).ToList();
 
-                var hs = new HashSet<ISchemaItem>(columns, new SchemaItemComparer());
+                HashSet<ISchemaItem> hs = new HashSet<ISchemaItem>(columns, new SchemaItemComparer());
                 hs.UnionWith(list);
                 return hs.ToList();
             }
@@ -176,12 +257,21 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>Dictionary&lt;System.String, System.String&gt;.</returns>
         public Dictionary<string, string> GetColumnsAsDictionary(string table)
         {
-            var cols = SchemaItem()
+            Dictionary<string, string> cols = SchemaItem()
                 .Where(e => e.TableName == table && e.ParentId != 0)
                 .Select(e => new KeyValuePair<string, string>(e.ColumnName, string.Empty))
                 .ToDictionary(e => e.Key, e => e.Value);
 
             return cols;
+        }
+
+        /// <summary>Gets the columns excluding calculated columns.</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
+        public List<ISchemaItem> GetColumnsExCalculated(string table)
+        {
+            //return GetColumns(_schemaItem, table, onlyIsChecked, excludeColumn);
+            return GetColumns(_schemaItem, table, false, null, true);
         }
 
         /// <summary>
@@ -215,10 +305,58 @@ namespace ZeraSystems.CodeNanite.Expansion
                 return null;
             }
 
-            var column = SchemaItem()
+            string column = SchemaItem()
                 .Where(e => (e.TableName == table && e.RelatedTable == related))
                 .Select(e => e.ColumnName).FirstOrDefault();
             return column;
+        }
+
+        /// <summary>Gets the foreign keys in one to one relationship.</summary>
+        /// <param name="schemaItem">The schema item.</param>
+        /// <param name="table">The table.</param>
+        /// <param name="allowPrimaryKeys">if set to <c>true</c> [allow primary keys].</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
+        public List<ISchemaItem> GetForeignKeysInOneToOne(List<ISchemaItem> schemaItem, string table, bool allowPrimaryKeys = false)
+        {
+            // By default, we will exclude intermediate files with rows have both primary and foreign keys.
+            // However, you may have files with a one-to-one relationship, in thus case we need to add the row
+            // to the result so that a navigation property can be created to complement the FluentApi configuration
+            // that will map a "HasOne", "WithOne" configuration
+            return schemaItem
+                .Where(e => !string.IsNullOrEmpty(e.ColumnType))
+                .Where(e => (e.IsForeignKey && e.IsPrimaryKey == allowPrimaryKeys))
+                .Where(e => e.RelatedTable == table)
+                .ToList();
+        }
+
+        /// <summary>Return the foreign keys in table as a List. You can pass your own specific list of SChema Items</summary>
+        /// <param name="schemaItem">The schema item.</param>
+        /// <param name="table">The table.</param>
+        /// <param name="allowPrimaryKeys">if set to <c>true</c> [allow primary keys].</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
+        public List<ISchemaItem> GetForeignKeysInTable(List<ISchemaItem> schemaItem, string table, bool allowPrimaryKeys = false)
+        {
+            return schemaItem
+                .Where(e => !string.IsNullOrEmpty(e.ColumnType))
+                .Where(e => (e.IsForeignKey) || (e.IsForeignKey && e.IsPrimaryKey == allowPrimaryKeys))
+                //.Where(e => (e.IsPrimaryKey == allowPrimaryKeys))      //We need to exclude intermediate files with rows have both primary and foreign keys
+                .Where(e => e.TableName == table)
+                .ToList();
+        }
+
+        /// <summary>Returns the foreign keys in table as a List.</summary>
+        /// <param name="table">The table.</param>
+        /// <param name="allowPrimaryKeys">if set to <c>true</c> [allow primary keys].</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
+        public List<ISchemaItem> GetForeignKeysInTable(string table, bool allowPrimaryKeys = false)
+        {
+            List<ISchemaItem> result = GetForeignKeysInTable(_schemaItem, table, allowPrimaryKeys);
+            if (allowPrimaryKeys)
+            {
+                List<ISchemaItem> result2 = GetForeignKeysInOneToOne(_schemaItem, table, true);
+                result.AddRange(result2);
+            }
+            return result;
         }
 
         /// <summary>Gets the lookup column.</summary>
@@ -232,10 +370,56 @@ namespace ZeraSystems.CodeNanite.Expansion
                 return null;
             }
 
-            var column = SchemaItem()
+            string column = SchemaItem()
                 .Where(e => (e.TableName == table && e.RelatedTable == related))
                 .Select(e => e.LookupColumn).FirstOrDefault();
             return column;
+        }
+
+        /// <summary>Gets the lookup display column.</summary>
+        /// <param name="table">The table.</param>
+        /// <param name="foreignKey">The foreign key.</param>
+        /// <returns>  The column used for displaying the lookup</returns>
+        public string GetLookupDisplayColumn(string table, string foreignKey)
+        {
+            string lookupTable = GetLookupTable(table, foreignKey);
+            ISchemaItem row = SchemaItem()
+                        .FirstOrDefault(e => e.TableName == table && e.ColumnName == foreignKey && e.IsForeignKey);
+
+            string displayColumn = string.Empty;
+            if (row != null && !row.IsCalculatedColumn)
+            {
+                displayColumn = row.LookupDisplayColumn;
+            }
+
+            if (displayColumn.IsBlank())
+            {
+                displayColumn = GetLookupTableLabel(table, foreignKey); //Use Table Label Column
+            }
+
+            if (displayColumn.IsBlank())
+            {
+                displayColumn = GetStringColumn(lookupTable); //Use the first string column of lookup table
+            }
+
+            if (displayColumn.IsBlank())
+            {
+                displayColumn = GetPrimaryKey(lookupTable); //Use Primary Key of lookup table
+            }
+
+            return displayColumn;
+        }
+
+        /// <summary>Gets the lookup display column with table name, e.g. myTable.myLookupColumn</summary>
+        /// <param name="table">The table.</param>
+        /// <param name="foreignKey">The foreign key.</param>
+        /// <returns>  String representing table.lookup column</returns>
+        public string GetLookupDisplayColumnWithPath(string table, string foreignKey)
+        {
+            string lookupTable = GetLookupTable(table, foreignKey);
+            string result = CreateRelatedTablePropertyName(foreignKey, table) + "." + GetLookupDisplayColumn(table, foreignKey);
+            //var result = lookupTable + "." + GetLookupDisplayColumn(table, foreignKey);
+            return result;
         }
 
         /// <summary>
@@ -246,7 +430,7 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>System.String.</returns>
         public string GetLookupTable(string table, string foreignKey)
         {
-            var result =  SchemaItem()
+            string result = SchemaItem()
                 .Where(e => e.TableName.Singularize() == table.Singularize() && e.ColumnName == foreignKey && e.IsForeignKey)
                 .Select(e => e.RelatedTable)
                 .FirstOrDefault();
@@ -260,7 +444,7 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>  String representing the label of the lookup</returns>
         public string GetLookupTableLabel(string table, string foreignKey)
         {
-            var lookupTable = GetLookupTable(table, foreignKey);
+            string lookupTable = GetLookupTable(table, foreignKey);
             if (!lookupTable.IsBlank())
             {
                 return SchemaItem()
@@ -287,152 +471,14 @@ namespace ZeraSystems.CodeNanite.Expansion
             return table + "." + GetLookupTableLabel(table, foreignKey);
         }
 
-        /// <summary>Gets the lookup display column.</summary>
-        /// <param name="table">The table.</param>
-        /// <param name="foreignKey">The foreign key.</param>
-        /// <returns>  The column used for displaying the lookup</returns>
-        public string GetLookupDisplayColumn(string table, string foreignKey)
-        {
-            var lookupTable = GetLookupTable(table, foreignKey);
-            var row = SchemaItem()
-                        .FirstOrDefault(e => e.TableName == table && e.ColumnName == foreignKey && e.IsForeignKey);
-
-            var displayColumn = string.Empty;
-            if (row != null && !row.IsCalculatedColumn)
-                displayColumn = row.LookupDisplayColumn;
-
-            if (displayColumn.IsBlank())
-                displayColumn = GetLookupTableLabel(table, foreignKey); //Use Table Label Column
-
-            if (displayColumn.IsBlank())
-                displayColumn = GetStringColumn(lookupTable); //Use the first string column of lookup table
-
-            if (displayColumn.IsBlank()) displayColumn = GetPrimaryKey(lookupTable); //Use Primary Key of lookup table
-
-            return displayColumn;
-        }
-
-        /// <summary>Gets the first string column in a lookup table.</summary>
-        /// <param name="table">The table.</param>
-        /// <returns>  Label of the string column</returns>
-        public string GetStringColumn(string table)
-        {
-            return SchemaItem()
-                .Where(e => (e.TableName == table && e.ColumnType == "string"))
-                .Select(e => e.ColumnName)
-                .FirstOrDefault();
-        }
-
-        /// <summary>Gets the lookup display column with table name, e.g. myTable.myLookupColumn</summary>
-        /// <param name="table">The table.</param>
-        /// <param name="foreignKey">The foreign key.</param>
-        /// <returns>  String representing table.lookup column</returns>
-        public string GetLookupDisplayColumnWithPath(string table, string foreignKey)
-        {
-            var lookupTable = GetLookupTable(table, foreignKey);
-            var result = CreateRelatedTablePropertyName(foreignKey, table) + "." + GetLookupDisplayColumn(table, foreignKey);
-            //var result = lookupTable + "." + GetLookupDisplayColumn(table, foreignKey);
-            return result;
-        }
-
-        /// <summary>
-        /// Gets the 12M table.
-        /// </summary>
-        /// <param name="table">The table.</param>
-        /// <returns>IEnumerable&lt;ISchemaItem&gt;.</returns>
-        public IEnumerable<ISchemaItem> GetOne2ManyTable(string table)
-        {
-            return SchemaItem()
-                .Where(e => e.RelatedTable == table);
-        }
-
-        #region Primary Key
-
-        /// <summary>Gets the table and primary key.
-        /// (table.primaryKey)</summary>
-        /// <param name="table">The table.</param>
-        /// <returns>System.String.</returns>
-        public string GetTableAndPrimaryKey(string table)
-        {
-            var primaryKey = GetPrimaryKey(table);
-            return !primaryKey.IsBlank() ? table + "." + primaryKey : string.Empty;
-        }
-
-        /// <summary>
-        /// Get the primary key of a table
-        /// </summary>
-        /// <param name="table">Table we need primary key for</param>
-        /// <returns>Primary Key</returns>
-        public string GetPrimaryKey(string table)
-        {
-            var name = SchemaItem()
-                .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsPrimaryKey)
-                .Select(e => e.ColumnName)
-                .FirstOrDefault(); //?? string.Empty;
-            return name;
-        }
-
-        /// <summary>Gets the type of the primary key.</summary>
-        /// <param name="table">The table.</param>
-        /// <returns>System.String.</returns>
-        public string GetPrimaryKeyType(string table) => GetPrimaryKeyRow(table).ColumnType;
-
-        /// <summary>Gets the primary key row.</summary>
-        /// <param name="table">The table.</param>
-        /// <returns>ISchemaItem.</returns>
-        public ISchemaItem GetPrimaryKeyRow(string table)
-        {
-            var row = SchemaItem()
-                .FirstOrDefault(e => e.TableName.Singularize() == table.Singularize() && e.IsPrimaryKey);
-            return row;
-        }
-
-        #endregion Primary Key
-
-        /// <summary>Returns a list of the sort columns.</summary>
-        /// <param name="table">The table.</param>
-        /// <returns>List&lt;ISchemaItem&gt;.</returns>
-        public List<ISchemaItem> GetSortColumns(string table)
-        {
-            return SchemaItem()
-                .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsSortColumn).ToList();
-        }
-
-        /// <summary>Returns a list of the search columns.</summary>
-        /// <param name="table">The table.</param>
-        /// <returns>List&lt;ISchemaItem&gt;.</returns>
-        public List<ISchemaItem> GetSearchColumns(string table)
-        {
-            return SchemaItem()
-                .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsSearchColumn).ToList();
-        }
-
-        /// <summary>
-        /// Gets the related tables.
-        /// </summary>
-        /// <param name="table">The table.</param>
-        /// <returns>List&lt;ISchemaItem&gt;.</returns>
-        public List<ISchemaItem> GetRelatedTables(string table) => GetRelatedTables(SchemaItem().ToList(), table);
-
-        /// <summary>Gets the related tables to the passed table as a List.</summary>
+        /// <summary>Gets navigation properties.</summary>
         /// <param name="schemaItem">The schema item.</param>
         /// <param name="table">The table.</param>
         /// <returns>List&lt;ISchemaItem&gt;.</returns>
-        public List<ISchemaItem> GetRelatedTables(List<ISchemaItem> schemaItem, string table)
-        {
-            return schemaItem
-                .Where(e => !string.IsNullOrEmpty(e.ColumnType))
-                .Where(e => (e.RelatedTable == table))
-                //.Where(e=> (IsTableEnabled(e.RelatedTable))
-                .ToList();
-        }
-
-        public List<ISchemaItem> GetNavProperties(string table) => GetNavProperties(SchemaItem().ToList(), table);
-
         public List<ISchemaItem> GetNavProperties(List<ISchemaItem> schemaItem, string table)
         {
-            var result = schemaItem
-                .Where(e => ((e.RelatedTable == table && e.ColumnType != null) || 
+            List<ISchemaItem> result = schemaItem
+                .Where(e => ((e.RelatedTable == table && e.ColumnType != null) ||
                              (e.TableName == table && e.RelatedTable != null)))
                 .Where(e => e.OriginalName == e.LookupColumn)
                 .ToList();
@@ -448,8 +494,108 @@ namespace ZeraSystems.CodeNanite.Expansion
             return result;
         }
 
-        public List<ISchemaItem> GetSelfJoinColumns(string table) => GetSelfJoinColumns(SchemaItem().ToList(), table);
+        /// <summary>Gets navigation properties.</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
+        public List<ISchemaItem> GetNavProperties(string table) => GetNavProperties(SchemaItem().ToList(), table);
 
+        /// <summary>
+        /// Gets the 12M table.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        /// <returns>IEnumerable&lt;ISchemaItem&gt;.</returns>
+        public IEnumerable<ISchemaItem> GetOne2ManyTable(string table)
+        {
+            return SchemaItem()
+                .Where(e => e.RelatedTable == table);
+        }
+
+        /// <summary>Gets the original name of the table .</summary>
+        /// <param name="table">The table.</param>
+        /// <param name="allowNullReturn">if set to <c>true</c> [allow null return].</param>
+        /// <returns>System.String.</returns>
+        public string GetOriginalTableName(string table, bool allowNullReturn = false)
+        {
+            string name = _schemaItem
+                .Where(e => e.TableName == table && string.IsNullOrEmpty(e.ColumnType))
+                .Select(e => e.OriginalName)
+                .FirstOrDefault();
+
+            if (name.IsBlank() && allowNullReturn)
+            {
+                return name;
+            }
+
+            return name.IsBlank() ? GetTable(table) : name;
+        }
+
+        /// <summary>Gets the name of the related column.</summary>
+        /// <param name="column">The column.</param>
+        /// <returns>  String representing the table.column</returns>
+        public string GetRelatedColumnName(IHtmlColumns column)
+        {
+            //var columnName = CreateRelatedTablePropertyName(column.ColumnName, column.TableName);
+            string columnName = column.ColumnName;
+            if (column.IsForeignKey && (column.RelatedTable == column.TableName))
+            {
+                return column.TableName + "." + columnName + NavigationLabel();
+            }
+            else if (column.IsForeignKey)
+            {
+                return column.TableName + "." + GetLookupDisplayColumnWithPath(column.TableName, columnName);
+            }
+            else
+            {
+                return column.TableName + "." + columnName;
+            }
+        }
+
+        /// <summary>Gets the related tables to the passed table as a List.</summary>
+        /// <param name="schemaItem">The schema item.</param>
+        /// <param name="table">The table.</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
+        public List<ISchemaItem> GetRelatedTables(List<ISchemaItem> schemaItem, string table)
+        {
+            return schemaItem
+                .Where(e => !string.IsNullOrEmpty(e.ColumnType))
+                .Where(e => (e.RelatedTable == table))
+                //.Where(e=> (IsTableEnabled(e.RelatedTable))
+                .ToList();
+        }
+
+        /// <summary>
+        /// Gets the related tables.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
+        public List<ISchemaItem> GetRelatedTables(string table) => GetRelatedTables(SchemaItem().ToList(), table);
+
+        /// <summary>
+        /// Gets the corresponding SchemaItem column based on the passed column name.
+        /// </summary>
+        /// <param name="column">The name of the column</param>
+        /// <param name="table">The table column belongs to</param>
+        /// <returns>SchemaItem column row</returns>
+        public ISchemaItem GetSchemaItemColumn(string column, string table)
+        {
+            ISchemaItem schemaItemColumn = SchemaItem()
+                .FirstOrDefault(x => (x.ColumnName == column.StripCarriage() && x.TableName == table.StripCarriage()));
+            return schemaItemColumn;
+        }
+
+        /// <summary>Returns a list of the search columns.</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
+        public List<ISchemaItem> GetSearchColumns(string table)
+        {
+            return SchemaItem()
+                .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsSearchColumn).ToList();
+        }
+
+        /// <summary>Gets the self join columns.</summary>
+        /// <param name="schemaItem">The schema item.</param>
+        /// <param name="table">The table.</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
         public List<ISchemaItem> GetSelfJoinColumns(List<ISchemaItem> schemaItem, string table)
         {
             return schemaItem
@@ -457,53 +603,29 @@ namespace ZeraSystems.CodeNanite.Expansion
                 .ToList();
         }
 
-
-        /// <summary>Returns the foreign keys in table as a List.</summary>
+        /// <summary>Gets the self join columns .</summary>
         /// <param name="table">The table.</param>
-        /// <param name="allowPrimaryKeys">if set to <c>true</c> [allow primary keys].</param>
         /// <returns>List&lt;ISchemaItem&gt;.</returns>
-        public List<ISchemaItem> GetForeignKeysInTable(string table, bool allowPrimaryKeys = false)
+        public List<ISchemaItem> GetSelfJoinColumns(string table) => GetSelfJoinColumns(SchemaItem().ToList(), table);
+
+        /// <summary>Returns a list of the sort columns.</summary>
+        /// <param name="table">The table.</param>
+        /// <returns>List&lt;ISchemaItem&gt;.</returns>
+        public List<ISchemaItem> GetSortColumns(string table)
         {
-            var result = GetForeignKeysInTable(_schemaItem, table, allowPrimaryKeys);
-            if (allowPrimaryKeys)
-            {
-                var result2 = GetForeignKeysInOneToOne(_schemaItem, table, true);
-                result.AddRange(result2);
-            }
-            return result;
+            return SchemaItem()
+                .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsSortColumn).ToList();
         }
 
-        /// <summary>Return the foreign keys in table as a List. You can pass your own specific list of SChema Items</summary>
-        /// <param name="schemaItem">The schema item.</param>
+        /// <summary>Gets the first string column in a lookup table.</summary>
         /// <param name="table">The table.</param>
-        /// <param name="allowPrimaryKeys">if set to <c>true</c> [allow primary keys].</param>
-        /// <returns>List&lt;ISchemaItem&gt;.</returns>
-        public List<ISchemaItem> GetForeignKeysInTable(List<ISchemaItem> schemaItem, string table, bool allowPrimaryKeys = false)
+        /// <returns>  Label of the string column</returns>
+        public string GetStringColumn(string table)
         {
-            return schemaItem
-                .Where(e => !string.IsNullOrEmpty(e.ColumnType))
-                .Where(e => (e.IsForeignKey) || (e.IsForeignKey && e.IsPrimaryKey == allowPrimaryKeys))
-                //.Where(e => (e.IsPrimaryKey == allowPrimaryKeys))      //We need to exclude intermediate files with rows have both primary and foreign keys
-                .Where(e => e.TableName == table)
-                .ToList();
-        }
-
-        /// <summary>Gets the foreign keys in one to one relationship.</summary>
-        /// <param name="schemaItem">The schema item.</param>
-        /// <param name="table">The table.</param>
-        /// <param name="allowPrimaryKeys">if set to <c>true</c> [allow primary keys].</param>
-        /// <returns>List&lt;ISchemaItem&gt;.</returns>
-        public List<ISchemaItem> GetForeignKeysInOneToOne(List<ISchemaItem> schemaItem, string table, bool allowPrimaryKeys = false)
-        {
-            // By default, we will exclude intermediate files with rows have both primary and foreign keys.
-            // However, you may have files with a one-to-one relationship, in thus case we need to add the row
-            // to the result so that a navigation property can be created to complement the FluentApi configuration
-            // that will map a "HasOne", "WithOne" configuration
-            return schemaItem
-                .Where(e => !string.IsNullOrEmpty(e.ColumnType))
-                .Where(e => (e.IsForeignKey && e.IsPrimaryKey == allowPrimaryKeys))
-                .Where(e => e.RelatedTable == table)
-                .ToList();
+            return SchemaItem()
+                .Where(e => (e.TableName == table && e.ColumnType == "string"))
+                .Select(e => e.ColumnName)
+                .FirstOrDefault();
         }
 
         /// <summary>
@@ -511,9 +633,9 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// </summary>
         /// <param name="table">The table.</param>
         /// <returns>System.String.</returns>
-        public string GetTable(string table)
+        public string GetTable(string table, bool enabledOnly = true)
         {
-            var name = GetTables()
+            var name = GetTables(enabledOnly)
                            .Where(e => e.ColumnName.Singularize() == table.Singularize() && string.IsNullOrEmpty(e.ColumnType))
                            .Select(e => e.ColumnName)
                            .SingleOrDefault() ?? string.Empty;
@@ -530,45 +652,17 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// Table Name has been defined</returns>
         public string GetTableLabel(string table, bool allowNullReturn = false)
         {
-            var name = _schemaItem
+            string name = _schemaItem
                 .Where(e => e.TableName == table && e.ColumnType != null && e.IsTableLabel == true)
                 .Select(e => e.ColumnName)
                 .FirstOrDefault();
 
             if (name.IsBlank() && allowNullReturn)
+            {
                 return name;
+            }
 
             return name.IsBlank() ? GetPrimaryKey(table) : name;
-        }
-
-        /// <summary>Gets the original name of the table .</summary>
-        /// <param name="table">The table.</param>
-        /// <param name="allowNullReturn">if set to <c>true</c> [allow null return].</param>
-        /// <returns>System.String.</returns>
-        public string GetOriginalTableName(string table, bool allowNullReturn = false)
-        {
-            var name = _schemaItem
-                .Where(e => e.TableName == table && string.IsNullOrEmpty(e.ColumnType))
-                .Select(e => e.OriginalName)
-                .FirstOrDefault();
-
-            if (name.IsBlank() && allowNullReturn)
-                return name;
-
-            return name.IsBlank() ? GetTable(table) : name;
-        }
-
-        /// <summary>Gets the column attribute (Data Annotation) of passed column.</summary>
-        /// <param name="column">The column.</param>
-        /// <param name="table">The table.</param>
-        /// <returns>System.String.</returns>
-        public string GetColumnAttribute(string column, string table)
-        {
-            var name = _schemaItem
-                .Where(e => e.TableName == table && e.ColumnName == column)
-                .Select(e => e.ColumnAttribute)
-                .FirstOrDefault();
-            return name.IsBlank() ? string.Empty : name;
         }
 
         /// <summary>
@@ -578,7 +672,7 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>ISchemaItem.</returns>
         public ISchemaItem GetTableObject(string table)
         {
-            var name = GetTables()
+            ISchemaItem name = GetTables()
                            .FirstOrDefault(e => (e.TableName == table && e.ParentId == 0));
             return name;
         }
@@ -587,9 +681,9 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// Return the tables in database as a List Collection
         /// </summary>
         /// <returns>Returned List of Table</returns>
-        public List<ISchemaItem> GetTables()
+        public List<ISchemaItem> GetTables(bool enabledOnly = true)
         {
-            return GetTables(_schemaItem);
+            return GetTables(_schemaItem, enabledOnly);
             //return _schemaItem
             //    .Where(e => string.IsNullOrEmpty(e.ColumnType))
             //    .ToList();
@@ -599,66 +693,22 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// Gets a list of tables.
         /// </summary>
         /// <param name="schemaItem">The schema item.</param>
+        /// <param name="enabledOnly">Indicates that only enabled tables should be listed</param>
         /// <returns>List&lt;ISchemaItem&gt;.</returns>
-        public List<ISchemaItem> GetTables(List<ISchemaItem> schemaItem)
+        public List<ISchemaItem> GetTables(List<ISchemaItem> schemaItem, bool enabledOnly = true)
         {
-            var tables = schemaItem
-                .Where(e => e.ParentId == 0 && (e.TableName == e.ColumnName) && e.IsChecked)
-                .ToList();
-            return tables;
-        }
-
-        /// <summary>Gets the name of the related column.</summary>
-        /// <param name="column">The column.</param>
-        /// <returns>  String representing the table.column</returns>
-        public string GetRelatedColumnName(IHtmlColumns column)
-        {
-            //var columnName = CreateRelatedTablePropertyName(column.ColumnName, column.TableName);
-            var columnName = column.ColumnName;
-            if (column.IsForeignKey && (column.RelatedTable == column.TableName))
+            if (enabledOnly)
             {
-                return column.TableName + "." + columnName + NavigationLabel();
-            }
-            else if (column.IsForeignKey)
-            {
-                return column.TableName + "." + GetLookupDisplayColumnWithPath(column.TableName, columnName);
+                return schemaItem
+                    .Where(e => e.ParentId == 0 && (e.TableName == e.ColumnName) && e.IsChecked == enabledOnly)
+                    .ToList();
             }
             else
             {
-                return column.TableName + "." + columnName;
+                return schemaItem
+                    .Where(e => e.ParentId == 0 && (e.TableName == e.ColumnName) )
+                    .ToList();
             }
-        }
-
-        public string CreateTablePropertyName(ISchemaItem item)
-        {
-            if (item.ColumnName == item.LookupColumn)
-                return item.RelatedTable;
-
-            if (item.ColumnName.ToLower().Contains("id") &&
-                item.ColumnName.ToLower().Substring(item.ColumnName.Length - 2) == "id")
-                return Regex.Replace(item.ColumnName, "id", string.Empty, RegexOptions.IgnoreCase);
-
-            return item.RelatedTable;
-        }
-
-        public string CreateRelatedTablePropertyName(string column, string table)
-        {
-            var schemaItem = SchemaItem().FirstOrDefault(e => e.TableName == table && e.ColumnName == column);
-            return schemaItem != null ? CreateTablePropertyName(schemaItem) : column;
-        }
-
-        /// <summary>Determines whether primary key is in related tables</summary>
-            /// <param name="table">The table.</param>
-            /// <param name="targetTable">The target table.</param>
-            /// <returns>
-            ///   <c>true</c> if [is primary in related] [the specified table]; otherwise, <c>false</c>.</returns>
-            public bool IsPrimaryInRelated(string table, string targetTable)
-        {
-            var result =
-                SchemaItem()
-                .Where(e => e.RelatedTable == table && e.TableName == targetTable && !string.IsNullOrEmpty(e.ColumnType))
-                .FirstOrDefault(x => x.IsPrimaryKey && x.IsForeignKey);
-            return result != null;
         }
 
         /// <summary>
@@ -668,7 +718,7 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns><c>true</c> if [has calculated column] [the specified table]; otherwise, <c>false</c>.</returns>
         public bool HasCalculatedColumn(string table)
         {
-            var name = _schemaItem
+            ISchemaItem name = _schemaItem
                 .FirstOrDefault(e => e.TableName == table && e.IsCalculatedColumn);
             return name != null;
         }
@@ -680,18 +730,22 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns><c>true</c> if [is in list of tables] [the specified table]; otherwise, <c>false</c>.</returns>
         public bool IsInListOfTables(string table)
         {
-            var foundTable = GetTables().FirstOrDefault(t => t.TableName == table && t.ParentId == 0);
+            ISchemaItem foundTable = GetTables().FirstOrDefault(t => t.TableName == table && t.ParentId == 0);
             return foundTable != null;
         }
 
-        /// <summary>
-        /// Confirm the passed table is in database
-        /// </summary>
-        /// <param name="name">The name.</param>
-        public void IsTableInDatabase(string name)
+        /// <summary>Determines whether primary key is in related tables</summary>
+        /// <param name="table">The table.</param>
+        /// <param name="targetTable">The target table.</param>
+        /// <returns>
+        ///   <c>true</c> if [is primary in related] [the specified table]; otherwise, <c>false</c>.</returns>
+        public bool IsPrimaryInRelated(string table, string targetTable)
         {
-            var isTable = _schemaItem.Where(s => s.ColumnName == name)
-                .Where(s => string.IsNullOrEmpty(s.ColumnType));
+            ISchemaItem result =
+                SchemaItem()
+                .Where(e => e.RelatedTable == table && e.TableName == targetTable && !string.IsNullOrEmpty(e.ColumnType))
+                .FirstOrDefault(x => x.IsPrimaryKey && x.IsForeignKey);
+            return result != null;
         }
 
         /// <summary>Determines whether a table is enabled</summary>
@@ -700,37 +754,34 @@ namespace ZeraSystems.CodeNanite.Expansion
         ///   <c>true</c> if table enabled otherwise, <c>false</c>.</returns>
         public bool IsTableEnabled(string name)
         {
-            var result = false;
-            var table = GetTableObject(name);
+            bool result = false;
+            ISchemaItem table = GetTableObject(name);
             if (table != null)
+            {
                 result = true;
+            }
+
             return result;
         }
 
         /// <summary>
-        /// Struct containing actions flags
+        /// Confirm the passed table is in database
         /// </summary>
-        public struct Actions
+        /// <param name="name">The name.</param>
+        public void IsTableInDatabase(string name)
         {
-            /// <summary>
-            /// The get
-            /// </summary>
-            public bool Get;
+            IEnumerable<ISchemaItem> isTable = _schemaItem.Where(s => s.ColumnName == name)
+                .Where(s => string.IsNullOrEmpty(s.ColumnType));
+        }
 
-            /// <summary>
-            /// The post
-            /// </summary>
-            public bool Post;
-
-            /// <summary>
-            /// The put
-            /// </summary>
-            public bool Put;
-
-            /// <summary>
-            /// The delete
-            /// </summary>
-            public bool Delete;
+        /// <summary>
+        /// Schema Items.
+        /// </summary>
+        /// <returns>IEnumerable&lt;ISchemaItem&gt;.</returns>
+        private IEnumerable<ISchemaItem> SchemaItem()
+        {
+            Debug.Assert(_schemaItem != null);
+            return _schemaItem;
         }
     }
 }

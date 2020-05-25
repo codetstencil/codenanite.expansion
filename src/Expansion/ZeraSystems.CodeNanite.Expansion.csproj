@@ -127,12 +127,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="logo64x64.png" />
-    <None Include="version.xml" />
+    <None Include="logo64x64.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>copy $(TargetFileName) "D:\projects-desktop\build\CodeStencil\CodeNanites" /y
+copy $(TargetName).pdb "D:\projects-desktop\build\CodeStencil\CodeNanites" /y
+
 "D:\projects-desktop\codestencil\app\build-compile\signer-nuget.bat"   $(TargetPath) $(ProjectDir)$(ProjectName)
 
 

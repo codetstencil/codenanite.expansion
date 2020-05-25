@@ -18,19 +18,19 @@
     <HelpFileName>WebApplication4</HelpFileName>
     <HelpFileNamingMethod>MemberName</HelpFileNamingMethod>
     <ImageFolderPath />
-    <Theme>FlatGray</Theme>
+    <Theme>FlatMain.Frame</Theme>
     <HtmlFormats>
-      <HtmlHelp>false</HtmlHelp>
+      <HtmlHelp>true</HtmlHelp>
       <MSHelpViewer>false</MSHelpViewer>
       <MSHelp2>false</MSHelp2>
-      <Website>true</Website>
+      <Website>false</Website>
       <VSIntelliSenseFile>false</VSIntelliSenseFile>
     </HtmlFormats>
     <IncludeScopes>
       <Public>true</Public>
-      <Internal>true</Internal>
-      <Protected>true</Protected>
-      <Private>true</Private>
+      <Internal>false</Internal>
+      <Protected>false</Protected>
+      <Private>false</Private>
       <Inherited>true</Inherited>
       <InheritedFromReferences>true</InheritedFromReferences>
       <EnableTags>false</EnableTags>
