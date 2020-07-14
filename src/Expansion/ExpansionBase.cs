@@ -169,15 +169,23 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// Pluralizes the specified text.
         /// </summary>
         /// <param name="text">The text.</param>
+        /// <param name="doNotPluralize">By default is false and means you do not want the text to be pluralized</param>
         /// <returns>Pluralized text.</returns>
-        public string Pluralize(string text) => new Pluralizer().Pluralize(text);
+        public string Pluralize(string text, bool doNotPluralize=false)
+        {
+            return doNotPluralize ? text : new Pluralizer().Pluralize(text);
+        }
 
         /// <summary>
         /// Singularizes the specified text.
         /// </summary>
         /// <param name="text">The text.</param>
+        /// <param name="doNotSingularize">By default is false and means you do not want the text to be singulalized</param>
         /// <returns>Singularized text</returns>
-        public static string Singularize(string text) => new Pluralizer().Singularize(text);
+        public static string Singularize(string text, bool doNotSingularize=false)
+        {
+            return doNotSingularize ? text : new Pluralizer().Singularize(text);
+        }
 
         /// <summary>
         /// Clones the passed SchemaTtem.
@@ -255,6 +263,13 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// </summary>
         /// <returns>Company Name</returns>
         public string GetCompanyName() => FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location).CompanyName;
+
+        public bool PreserveTableName()
+        {
+            bool.TryParse(GetExpansionString("PRESERVE_TABLE_NAME"),out var result);
+            return result;
+        }
+
 
         #endregion Project Settings
 

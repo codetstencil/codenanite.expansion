@@ -365,7 +365,7 @@ namespace ZeraSystems.CodeNanite.Expansion
         {
             BuildSnippet(null);
             BuildSnippet("@page",0);
-            BuildSnippet("@model "+nameSpace+".Pages."+table.Pluralize()+"."+headerType+"Model",0);
+            BuildSnippet("@model "+nameSpace+".Pages."+Pluralize(table,PreserveTableName())+"."+headerType+"Model",0);
             BuildSnippet("");
             BuildSnippet("@{",0);
             BuildSnippet("ViewData["+"Title".AddQuotes()+"] = "+ headerType.AddQuotes()+";",4);

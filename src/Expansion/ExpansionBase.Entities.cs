@@ -13,6 +13,7 @@
 // ***********************************************************************
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text.RegularExpressions;
 using ZeraSystems.CodeStencil.Contracts;
@@ -33,10 +34,21 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>Primary Key</returns>
         public string GetPrimaryKey(string table)
         {
-            var name = SchemaItem()
-                .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsPrimaryKey)
-                .Select(e => e.ColumnName)
-                .FirstOrDefault(); //?? string.Empty;
+            string name;
+            if (PreserveTableName())
+            {
+                name = SchemaItem()
+                    .Where(e => e.TableName == table && e.IsPrimaryKey)
+                    .Select(e => e.ColumnName)
+                    .FirstOrDefault(); 
+            }
+            else
+            {
+                name = SchemaItem()
+                    .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsPrimaryKey)
+                    .Select(e => e.ColumnName)
+                    .FirstOrDefault(); 
+            }
             return name;
         }
 
@@ -45,8 +57,17 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>ISchemaItem.</returns>
         public ISchemaItem GetPrimaryKeyRow(string table)
         {
-            var row = SchemaItem()
-                .FirstOrDefault(e => e.TableName.Singularize() == table.Singularize() && e.IsPrimaryKey);
+            ISchemaItem row;
+            if (PreserveTableName())
+            {
+                row = SchemaItem()
+                    .FirstOrDefault(e => e.TableName == table && e.IsPrimaryKey);
+            }
+            else
+            {
+                row = SchemaItem()
+                    .FirstOrDefault(e => e.TableName.Singularize() == table.Singularize() && e.IsPrimaryKey);
+            }
             return row;
         }
 
@@ -418,12 +439,20 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>System.String.</returns>
         public string GetLookupTable(string table, string foreignKey)
         {
-            var result = SchemaItem()
-                .Where(e => e.TableName.Singularize() == table.Singularize() && e.ColumnName == foreignKey && e.IsForeignKey)
-                .Select(e => e.RelatedTable)
-                .FirstOrDefault();
+            string result;
+            if (PreserveTableName())
+            {
+                result = SchemaItem()
+                    .Where(e => e.TableName == table && e.ColumnName == foreignKey && e.IsForeignKey)
+                    .Select(e => e.RelatedTable).FirstOrDefault();
+            }
+            else
+            {
+                result = SchemaItem()
+                    .Where(e => e.TableName.Singularize() == table.Singularize() && e.ColumnName == foreignKey && e.IsForeignKey)
+                    .Select(e => e.RelatedTable).FirstOrDefault();
+            }
             return result;
-            //return CreateRelatedTablePropertyName(foreignKey, table);
         }
 
         /// <summary>Gets the lookup table label.</summary>
@@ -574,8 +603,16 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>List&lt;ISchemaItem&gt;.</returns>
         public List<ISchemaItem> GetSearchColumns(string table)
         {
-            return SchemaItem()
-                .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsSearchColumn).ToList();
+            if (PreserveTableName())
+            {
+                return SchemaItem()
+                    .Where(e => e.TableName == table && e.IsSearchColumn).ToList();
+            }
+            else
+            {
+                return SchemaItem()
+                    .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsSearchColumn).ToList();
+            }
         }
 
         /// <summary>Gets the self join columns.</summary>
@@ -599,8 +636,16 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>List&lt;ISchemaItem&gt;.</returns>
         public List<ISchemaItem> GetSortColumns(string table)
         {
-            return SchemaItem()
-                .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsSortColumn).ToList();
+            if (PreserveTableName())
+            {
+                return SchemaItem()
+                    .Where(e => e.TableName == table && e.IsSortColumn).ToList();
+            }
+            else
+            {
+                return SchemaItem()
+                    .Where(e => e.TableName.Singularize() == table.Singularize() && e.IsSortColumn).ToList();
+            }
         }
 
         /// <summary>Gets the first string column in a lookup table.</summary>
@@ -620,10 +665,23 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>System.String.</returns>
         public string GetTable(string table, bool enabledOnly = true)
         {
-            var name = GetTables(enabledOnly)
-                           .Where(e => e.ColumnName.Singularize() == table.Singularize() && string.IsNullOrEmpty(e.ColumnType))
-                           .Select(e => e.ColumnName)
-                           .SingleOrDefault() ?? string.Empty;
+            string name;
+            if (PreserveTableName())
+            {
+                name = GetTables(enabledOnly)
+                    .Where(e => e.ColumnName == table &&
+                                string.IsNullOrEmpty(e.ColumnType))
+                    .Select(e => e.ColumnName)
+                    .SingleOrDefault() ?? string.Empty;
+            }
+            else
+            {
+                name = GetTables(enabledOnly)
+                    .Where(e => e.ColumnName.Singularize() == table.Singularize() &&
+                                string.IsNullOrEmpty(e.ColumnType))
+                    .Select(e => e.ColumnName)
+                    .SingleOrDefault() ?? string.Empty;
+            }
             return name;
         }
 
