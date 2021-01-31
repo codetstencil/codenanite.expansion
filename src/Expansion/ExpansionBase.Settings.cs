@@ -4,7 +4,7 @@
 // Created          : 01-01-2019
 //
 // Last Modified By : Ayodele-Desktop
-// Last Modified On : 01-03-2019
+// Last Modified On : 03-31-2020
 // ***********************************************************************
 // <copyright file="ExpansionBase.Settings.cs" company="ZeraSystems Inc.">
 //     Copyright ©  2018
@@ -28,6 +28,11 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// </summary>
         /// <param name="identifier">The identifier.</param>
         /// <returns>System.String[].</returns>
+        /// <summary>
+        /// Retrieves the saved settings.
+        /// </summary>
+        /// <param name="identifier">The identifier.</param>
+        /// <returns>System.String[].</returns>
         public string[] RetrieveSavedSettings(string identifier)
         {
             var settings = GetExpansionString(identifier);
@@ -40,6 +45,12 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <param name="setting">Setting we want to retrieve from</param>
         /// <param name="configLabel">Configuration label</param>
         /// <returns>System.String.</returns>
+        /// <summary>
+        /// Gets the settings value.
+        /// </summary>
+        /// <param name="setting">The setting.</param>
+        /// <param name="configLabel">The configuration label.</param>
+        /// <returns>System.String.</returns>
         public string GetSettingsValue(string setting, string configLabel)
         {
             var arraySettings = RetrieveSavedSettings(configLabel);
@@ -51,6 +62,12 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// </summary>
         /// <param name="setting">Setting we want to retrieve from</param>
         /// <param name="theArray">Passed array</param>
+        /// <returns>System.String.</returns>
+        /// <summary>
+        /// Gets the settings value.
+        /// </summary>
+        /// <param name="setting">The setting.</param>
+        /// <param name="theArray">The array.</param>
         /// <returns>System.String.</returns>
         public string GetSettingsValue(string setting, string[] theArray)
         {
@@ -69,6 +86,12 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <param name="setting">Setting we want to retrieve from</param>
         /// <param name="configLabel">Configuration label</param>
         /// <param name="list">The list.</param>
+        /// <summary>
+        /// Gets the settings value.
+        /// </summary>
+        /// <param name="setting">The setting.</param>
+        /// <param name="configLabel">The configuration label.</param>
+        /// <param name="list">The list.</param>
         public void GetSettingsValue(string setting, string configLabel, ref List<string> list)
         {
             var settings = GetSettingsValue(setting, RetrieveSavedSettings(configLabel));
@@ -78,6 +101,12 @@ namespace ZeraSystems.CodeNanite.Expansion
 
         /// <summary>
         /// Gets table and columns string.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="startPos">The start position.</param>
+        /// <returns>System.String.</returns>
+        /// <summary>
+        /// Gets the table and columns string.
         /// </summary>
         /// <param name="text">The text.</param>
         /// <param name="startPos">The start position.</param>
@@ -127,7 +156,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             return columns;
         }
 
-        /// <summary>Gets the columns from schema items.</summary>
+        /// <summary>
+        /// Gets the columns from schema items.
+        /// </summary>
         /// <param name="columns">The columns.</param>
         /// <param name="table">The table.</param>
         /// <returns>IEnumerable&lt;ISchemaItem&gt;.</returns>

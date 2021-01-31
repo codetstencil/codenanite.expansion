@@ -4,7 +4,7 @@
 // Created          : 12-09-2018
 //
 // Last Modified By : Ayodele-Desktop
-// Last Modified On : 12-31-2018
+// Last Modified On : 11-15-2019
 // ***********************************************************************
 // <copyright file="frmSelectEntities.Designer.cs" company="ZeraSystems Inc.">
 //     Copyright ©  2018
@@ -26,6 +26,9 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <summary>
         /// The components
         /// </summary>
+        /// <summary>
+        /// The components
+        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
@@ -36,6 +39,10 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// Disposes of the resources (other than memory) used by the <see cref="T:System.Windows.Forms.Form" />.
         /// </summary>
         /// <param name="disposing">true to release both managed and unmanaged resources; false to release only unmanaged resources.</param>
+        /// <summary>
+        /// Disposes of the resources (other than memory) used by the <see cref="T:System.Windows.Forms.Form" />.
+        /// </summary>
+        /// <param name="disposing"><see langword="true" /> to release both managed and unmanaged resources; <see langword="false" /> to release only unmanaged resources.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -50,6 +57,9 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <summary>
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
+        /// </summary>
+        /// <summary>
+        /// Initializes the component.
         /// </summary>
         /// <summary>
         /// Initializes the component.
@@ -355,7 +365,13 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <summary>
         /// The checked ListBox tables
         /// </summary>
+        /// <summary>
+        /// The checked ListBox tables
+        /// </summary>
         private System.Windows.Forms.CheckedListBox checkedListBoxTables;
+        /// <summary>
+        /// The group box
+        /// </summary>
         /// <summary>
         /// The group box
         /// </summary>
@@ -363,7 +379,13 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <summary>
         /// The group box1
         /// </summary>
+        /// <summary>
+        /// The group box1
+        /// </summary>
         private System.Windows.Forms.GroupBox groupBox1;
+        /// <summary>
+        /// The checked ListBox columns
+        /// </summary>
         /// <summary>
         /// The checked ListBox columns
         /// </summary>
@@ -371,7 +393,13 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <summary>
         /// The table layout panel2
         /// </summary>
+        /// <summary>
+        /// The table layout panel2
+        /// </summary>
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        /// <summary>
+        /// The CHK tables
+        /// </summary>
         /// <summary>
         /// The CHK tables
         /// </summary>
@@ -379,21 +407,60 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <summary>
         /// The table layout panel3
         /// </summary>
+        /// <summary>
+        /// The table layout panel3
+        /// </summary>
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         /// <summary>
         /// The CHK columns
         /// </summary>
+        /// <summary>
+        /// The CHK columns
+        /// </summary>
         private System.Windows.Forms.CheckBox chkColumns;
+        /// <summary>
+        /// The table layout panel4
+        /// </summary>
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        /// <summary>
+        /// The table layout panel1
+        /// </summary>
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        /// <summary>
+        /// The BTN cancel
+        /// </summary>
         private System.Windows.Forms.Button btnCancel;
+        /// <summary>
+        /// The BTN ok
+        /// </summary>
         private System.Windows.Forms.Button btnOk;
+        /// <summary>
+        /// The table layout panel
+        /// </summary>
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel;
+        /// <summary>
+        /// The tab control
+        /// </summary>
         private System.Windows.Forms.TabControl tabControl;
+        /// <summary>
+        /// The tab page1
+        /// </summary>
         private System.Windows.Forms.TabPage tabPage1;
+        /// <summary>
+        /// The tab page2
+        /// </summary>
         private System.Windows.Forms.TabPage tabPage2;
+        /// <summary>
+        /// The table layout panel5
+        /// </summary>
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        /// <summary>
+        /// The rich text box
+        /// </summary>
         private System.Windows.Forms.RichTextBox richTextBox;
+        /// <summary>
+        /// The link label
+        /// </summary>
         private System.Windows.Forms.LinkLabel linkLabel;
     }
 }

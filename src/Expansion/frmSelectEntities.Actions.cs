@@ -4,7 +4,7 @@
 // Created          : 12-29-2018
 //
 // Last Modified By : Ayodele-Desktop
-// Last Modified On : 01-03-2019
+// Last Modified On : 11-15-2019
 // ***********************************************************************
 // <copyright file="frmSelectEntities.Actions.cs" company="ZeraSystems Inc.">
 //     Copyright ©  2018
@@ -29,6 +29,11 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="ItemCheckEventArgs"/> instance containing the event data.</param>
+        /// <summary>
+        /// Checks the column.
+        /// </summary>
+        /// <param name="sender">The sender.</param>
+        /// <param name="e">The <see cref="ItemCheckEventArgs"/> instance containing the event data.</param>
         private void CheckColumn(object sender, ItemCheckEventArgs e)
         {
             SetCheckState(sender, e);
@@ -38,6 +43,10 @@ namespace ZeraSystems.CodeNanite.Expansion
             SaveToObject(table, column, check);
         }
 
+        /// <summary>
+        /// Checks the table.
+        /// </summary>
+        /// <param name="e">The <see cref="ItemCheckEventArgs"/> instance containing the event data.</param>
         /// <summary>
         /// Checks the table.
         /// </summary>
@@ -54,12 +63,22 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// </summary>
         /// <param name="table">The table.</param>
         /// <returns>System.String.</returns>
+        /// <summary>
+        /// Creates the columns string.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        /// <returns>System.String.</returns>
         private string CreateColumnsString(string table)
         {
             var columns = _util.GetColumns(_schemaItemCopy, table, true).Select(x => x.ColumnName).ToList();
             return string.Join(",", columns);
         }
 
+        /// <summary>
+        /// Fills the columns.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        /// <param name="checkState">State of the check.</param>
         /// <summary>
         /// Fills the columns.
         /// </summary>
@@ -75,6 +94,10 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// Fills the columns.
         /// </summary>
         /// <param name="table">The table.</param>
+        /// <summary>
+        /// Fills the columns.
+        /// </summary>
+        /// <param name="table">The table.</param>
         private void FillColumns(string table)
         {
             checkedListBoxColumns.Items.Clear();
@@ -86,6 +109,10 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <summary>
         /// Fills the tables.
         /// </summary>
+        /// <summary>
+        /// Fills the tables.
+        /// </summary>
+        /// <param name="firstTime">if set to <c>true</c> [first time].</param>
         private void FillTables(bool firstTime = false)
         {
             checkedListBoxTables.Items.Clear();
@@ -110,6 +137,9 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <summary>
         /// Saves the entities.
         /// </summary>
+        /// <summary>
+        /// Saves the entities.
+        /// </summary>
         private void SaveEntities()
         {
             var tables = _tables
@@ -122,6 +152,12 @@ namespace ZeraSystems.CodeNanite.Expansion
             SchemaString = _selectedObjectString.ToString();
         }
 
+        /// <summary>
+        /// Saves to object.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        /// <param name="column">The column.</param>
+        /// <param name="check">if set to <c>true</c> [check].</param>
         /// <summary>
         /// Saves to object.
         /// </summary>
@@ -141,6 +177,11 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// </summary>
         /// <param name="table">The table.</param>
         /// <param name="check">if set to <c>true</c> [check].</param>
+        /// <summary>
+        /// Saves the state of the table check.
+        /// </summary>
+        /// <param name="table">The table.</param>
+        /// <param name="check">if set to <c>true</c> [check].</param>
         private void SaveTableCheckState(string table, bool check)
         {
             try
@@ -155,6 +196,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             }
         }
 
+        /// <summary>
+        /// The selected table
+        /// </summary>
         /// <summary>
         /// The selected table
         /// </summary>
@@ -181,7 +225,7 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// Sets the state of the check.
         /// </summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="e">The <see cref="ItemCheckEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">The <see cref="ItemCheckEventArgs" /> instance containing the event data.</param>
         private void SetCheckState(object sender, ItemCheckEventArgs e)
         {
             try

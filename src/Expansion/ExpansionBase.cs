@@ -4,7 +4,7 @@
 // Created          : 12-07-2018
 //
 // Last Modified By : Ayodele-Desktop
-// Last Modified On : 01-03-2019
+// Last Modified On : 07-06-2020
 // ***********************************************************************
 // <copyright file="ExpansionBase.cs" company="ZeraSystems Inc.">
 //     Copyright ©  2018
@@ -48,6 +48,9 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// </summary>
         public StringBuilder ExpandedText = new StringBuilder();
 
+        /// <summary>
+        /// The snippet
+        /// </summary>
         public StringBuilder _snippet = new StringBuilder();
 
         #region AppendText
@@ -133,6 +136,12 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>Indented string</returns>
         public virtual string Indent(int indent) => string.Empty.PadLeft(indent);
 
+        /// <summary>
+        /// Indents the specified text.
+        /// </summary>
+        /// <param name="text">The text.</param>
+        /// <param name="indent">The indent.</param>
+        /// <returns>System.String.</returns>
         public string Indent(string text, int indent=4)
         {
             var lines = string.Empty;
@@ -207,6 +216,11 @@ namespace ZeraSystems.CodeNanite.Expansion
             return text;
         }
 
+        /// <summary>
+        /// Gets the expander object.
+        /// </summary>
+        /// <param name="label">The label.</param>
+        /// <returns>IExpander.</returns>
         public IExpander GetExpanderObject(string label)
         {
             //if (ExpansionStringExists(label))
@@ -214,10 +228,11 @@ namespace ZeraSystems.CodeNanite.Expansion
             //return null;
         }
 
-        /// <summary>Checks to see if an Expansion string exists.</summary>
+        /// <summary>
+        /// Checks to see if an Expansion string exists.
+        /// </summary>
         /// <param name="label">The expansion string we are checking</param>
-        /// <returns>
-        ///   <c>true</c> if the strin exists, <c>false</c> otherwise.</returns>
+        /// <returns><c>true</c> if the strin exists, <c>false</c> otherwise.</returns>
         public bool ExpansionStringExists(string label)
         {
             var expansionString = _expander.FirstOrDefault(e => e.ExpansionLabel == label);
@@ -248,6 +263,10 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>Project Name</returns>
         public string GetProjectName() => GetExpansionString("PROJECT_NAME");
 
+        /// <summary>
+        /// Gets the project name lower.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public string GetProjectNameLower() => GetExpansionString("PROJECT_NAME_LOWER");
 
         /// <summary>
@@ -256,6 +275,10 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>Output Folder</returns>
         public string GetOutputFolder() => GetExpansionString("OUTPUT_FOLDER");
 
+        /// <summary>
+        /// Gets the database context.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public string GetDbContext() => GetExpansionString("DB_CONTEXT");
 
         /// <summary>
@@ -264,6 +287,10 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <returns>Company Name</returns>
         public string GetCompanyName() => FileVersionInfo.GetVersionInfo(Assembly.GetEntryAssembly().Location).CompanyName;
 
+        /// <summary>
+        /// Preserves the name of the table.
+        /// </summary>
+        /// <returns><c>true</c> if XXXX, <c>false</c> otherwise.</returns>
         public bool PreserveTableName()
         {
             bool.TryParse(GetExpansionString("PRESERVE_TABLE_NAME"),out var result);
@@ -275,9 +302,11 @@ namespace ZeraSystems.CodeNanite.Expansion
 
         #region BuildSnippet
 
-        /// <summary>Builds the snippet by adding passed text to the private StringBuilder object -  _snippet.</summary>
+        /// <summary>
+        /// Builds the snippet by adding passed text to the private StringBuilder object -  _snippet.
+        /// </summary>
         /// <param name="text">The text.</param>
-        /// <param name="indent">  Indentation to use</param>
+        /// <param name="indent">Indentation to use</param>
         /// <param name="noCarriage">if set to <c>true</c> [no carriage].</param>
         public void BuildSnippet(string text, int indent = 8, bool noCarriage = false)
         {
@@ -290,7 +319,9 @@ namespace ZeraSystems.CodeNanite.Expansion
                 _snippet.Append(Indent(indent) + text.AddCarriage());
         }
 
-        /// <summary>Builds the snippet by adding passed text to your passed StringBuilder object</summary>
+        /// <summary>
+        /// Builds the snippet by adding passed text to your passed StringBuilder object
+        /// </summary>
         /// <param name="stringsBuilder">The strings builder.</param>
         /// <param name="text">The text.</param>
         /// <param name="indent">The indentation to use.</param>
@@ -306,7 +337,9 @@ namespace ZeraSystems.CodeNanite.Expansion
                 stringsBuilder.Append(Indent(indent) + text.AddCarriage());
         }
 
-        /// <summary>By Default, truncates all text currently saved in the StringBuilder object - _snippet.</summary>
+        /// <summary>
+        /// By Default, truncates all text currently saved in the StringBuilder object - _snippet.
+        /// </summary>
         /// <param name="canClear">if set to <c>true</c> [default], truncates existing text, if false, will return currently saved text.</param>
         /// <returns>Null, if text is truncated, else returns saved text.</returns>
         public string BuildSnippet(bool canClear = true)
@@ -317,7 +350,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             return result;
         }
 
-        /// <summary>Builds the snippet with the items in the passed list..</summary>
+        /// <summary>
+        /// Builds the snippet with the items in the passed list..
+        /// </summary>
         /// <param name="list">The list.</param>
         /// <param name="indent">The indent.</param>
         public void BuildSnippet(List<string> list, int indent)
@@ -328,7 +363,9 @@ namespace ZeraSystems.CodeNanite.Expansion
 
         #endregion BuildSnippet
 
-        /// <summary>Re aligns the passed text to use the passed indent.</summary>
+        /// <summary>
+        /// Re aligns the passed text to use the passed indent.
+        /// </summary>
         /// <param name="text">The text.</param>
         /// <param name="indent">The indent.</param>
         /// <returns>Realigned text</returns>
@@ -352,11 +389,13 @@ namespace ZeraSystems.CodeNanite.Expansion
             return alignedLines;
         }
 
-        /// <summary>Formats an string containing HTML.
-        /// tags</summary>
+        /// <summary>
+        /// Formats an string containing HTML.
+        /// tags
+        /// </summary>
         /// <param name="input">The string to format</param>
         /// <param name="indent">The indent.</param>
-        /// <returns>  Formatted string</returns>
+        /// <returns>Formatted string</returns>
         public string FormatHtml(string input, int indent=4)
         {
             var parser = new HtmlParser();
@@ -386,6 +425,11 @@ namespace ZeraSystems.CodeNanite.Expansion
 
         }
 
+        /// <summary>
+        /// Gets the null sign.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>System.String.</returns>
         public string GetNullSign(ISchemaItem item)
         {
             return
@@ -394,10 +438,24 @@ namespace ZeraSystems.CodeNanite.Expansion
                     ? "?" : string.Empty;
         }
 
+        /// <summary>
+        /// Starts the brace.
+        /// </summary>
+        /// <param name="indent">The indent.</param>
+        /// <returns>System.String.</returns>
         public string StartBrace(int indent = 4) => Indent(indent) + "{";
 
+        /// <summary>
+        /// Ends the brace.
+        /// </summary>
+        /// <param name="indent">The indent.</param>
+        /// <returns>System.String.</returns>
         public string EndBrace(int indent = 4) => Indent(indent) + "}";
 
+        /// <summary>
+        /// Navigations the label.
+        /// </summary>
+        /// <returns>System.String.</returns>
         public virtual string NavigationLabel() => "Navigation";
     }
 

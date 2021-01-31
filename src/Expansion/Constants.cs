@@ -4,7 +4,7 @@
 // Created          : 12-07-2018
 //
 // Last Modified By : Ayodele-Desktop
-// Last Modified On : 12-10-2018
+// Last Modified On : 01-08-2019
 // ***********************************************************************
 // <copyright file="Constants.cs" company="ZeraSystems Inc.">
 //     Copyright ©  2018
@@ -26,24 +26,15 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <summary>
         /// <form asp-action="Create"></form>
         /// </summary>
-        /// <summary>
-        /// The ASP action create
-        /// </summary>
         public const string AspActionCreate = @"<form asp-action=""Create"">";  //<form asp-action="Create">
 
         /// <summary>
         /// <form asp-action="Edit"></form>
         /// </summary>
-        /// <summary>
-        /// The ASP action edit
-        /// </summary>
         public const string AspActionEdit = @"<form asp-action=""Edit"">";      //<form asp-action="Edit">
 
         /// <summary>
         /// <div class="col-md-4"></div>
-        /// </summary>
-        /// <summary>
-        /// The ASP div col MD4
         /// </summary>
         public const string AspDivColMd4 = @"<div class=""col-md-4"">";         //<div class="col-md-4">
 
@@ -55,24 +46,15 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <summary>
         /// <div class="form-group"></div>
         /// </summary>
-        /// <summary>
-        /// The ASP div form group
-        /// </summary>
         public const string AspDivFormGroup = @"<div class=""form-group"">";    //<div class="form-group">
 
         /// <summary>
         /// <div class="row"></div>
         /// </summary>
-        /// <summary>
-        /// The ASP div row
-        /// </summary>
         public const string AspDivRow = @"<div class=""row"">";                 //<div class="row">
 
         /// <summary>
         /// The div start tag - "<div>"</div>
-        /// </summary>
-        /// <summary>
-        /// The ASP div start tag
         /// </summary>
         public const string AspDivStartTag = "<div>";                           //</div>
 

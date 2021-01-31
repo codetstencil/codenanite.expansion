@@ -8,7 +8,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
     <StartAction>Program</StartAction>
     <StartProgram>D:\projects-desktop\build\CodeStencil\Debug\CodeStencil.exe</StartProgram>
-    <StartArguments>/DebugFile="D:\projects-desktop\codestencil\code-nanites\codenanite.expansion\src\CodeStencil.Debug.xml"</StartArguments>
+    <StartArguments>/DebugFile="D:\projects-desktop\codestencil\code-nanites\CodeStencil.Debug"</StartArguments>
     <StartWorkingDirectory>
     </StartWorkingDirectory>
   </PropertyGroup>

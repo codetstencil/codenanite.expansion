@@ -4,7 +4,7 @@
 // Created          : 12-07-2018
 //
 // Last Modified By : Ayodele-Desktop
-// Last Modified On : 12-10-2018
+// Last Modified On : 07-13-2020
 // ***********************************************************************
 // <copyright file="AssemblyInfo.cs" company="ZeraSystems Inc.">
 //     Copyright ©  2018
@@ -22,7 +22,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("ZeraSystems Inc.")]
 [assembly: AssemblyProduct("CodeStencil Code Nanites")]
-[assembly: AssemblyCopyright("Copyright ©  2020 ZERA Systems Inc.")]
+[assembly: AssemblyCopyright("Copyright ©  2021 ZERA Systems Inc.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -44,5 +44,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers   
 // by using the '*' as shown below:  
 // [assembly: AssemblyVersion("1.0.*")]  
-[assembly: AssemblyVersion("1.3.2")]
-[assembly: AssemblyFileVersion("1.3.2")]
+[assembly: AssemblyVersion("1.3.2.3")]
+[assembly: AssemblyFileVersion("1.3.2.3")]

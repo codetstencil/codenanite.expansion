@@ -4,7 +4,7 @@
 // Created          : 12-07-2018
 //
 // Last Modified By : Ayodele-Desktop
-// Last Modified On : 01-03-2019
+// Last Modified On : 05-16-2020
 // ***********************************************************************
 // <copyright file="Extensions.cs" company="ZeraSystems Inc.">
 //     Copyright ©  2018
@@ -41,14 +41,6 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <param name="text">The character of string to be added after the passed string</param>
         /// <param name="index">The index of the current element. Remember to ADD 1 for 0-based lists/elements</param>
         /// <param name="count">The total number of elements</param>
-        /// <returns></returns>
-        /// <summary>
-        /// Adds the after.
-        /// </summary>
-        /// <param name="str">The string.</param>
-        /// <param name="text">The text.</param>
-        /// <param name="index">The index.</param>
-        /// <param name="count">The count.</param>
         /// <returns>System.String.</returns>
         public static string AddAfter(this string str, string text, int index, int count) => AddAfter(str, text, index != count);
 
@@ -66,6 +58,11 @@ namespace ZeraSystems.CodeNanite.Expansion
                 return Environment.NewLine + str;
         }
 
+        /// <summary>
+        /// Strips the carriage.
+        /// </summary>
+        /// <param name="str">The string.</param>
+        /// <returns>System.String.</returns>
         public static string StripCarriage(this string str) => str.Replace(Environment.NewLine, string.Empty);
 
 
@@ -145,12 +142,22 @@ namespace ZeraSystems.CodeNanite.Expansion
             return objResult;
         }
 
+        /// <summary>
+        /// Selfs the reference column.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>System.String.</returns>
         public static string SelfReferenceColumn(this ISchemaItem item)
         {
             if (item.TableName != item.RelatedTable) return string.Empty;
             return item.ColumnName + "Navigation";
         }
 
+        /// <summary>
+        /// Selfs the reference nav property.
+        /// </summary>
+        /// <param name="item">The item.</param>
+        /// <returns>System.String.</returns>
         public static string SelfRefNavProperty(this ISchemaItem item)
         {
             if (item.TableName != item.RelatedTable) return string.Empty;

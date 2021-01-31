@@ -4,7 +4,7 @@
 // Created          : 12-07-2018
 //
 // Last Modified By : Ayodele-Desktop
-// Last Modified On : 01-03-2019
+// Last Modified On : 07-13-2020
 // ***********************************************************************
 // <copyright file="ExpansionBase.Html.cs" company="ZeraSystems Inc.">
 //     Copyright ©  2018
@@ -105,7 +105,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             //
         }
 
-        /// <summary>Gets the self related object.</summary>
+        /// <summary>
+        /// Gets the self related object.
+        /// </summary>
         /// <param name="column">The column.</param>
         /// <returns>System.String.</returns>
         public string GetSelfRelatedObject(ISchemaItem column)
@@ -116,7 +118,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             return result;
         }
 
-        /// <summary>Gets the name of the self related column.</summary>
+        /// <summary>
+        /// Gets the name of the self related column.
+        /// </summary>
         /// <param name="column">The column.</param>
         /// <returns>System.String.</returns>
         public string GetSelfRelatedColumnName(ISchemaItem column)
@@ -156,6 +160,7 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// <summary>
         /// Displays the name for.
         /// </summary>
+        /// <param name="table">The table.</param>
         /// <param name="column">The column.</param>
         /// <param name="indent">The indent.</param>
         /// <param name="startTag">The start tag.</param>
@@ -174,7 +179,7 @@ namespace ZeraSystems.CodeNanite.Expansion
         /// Dls the tag details.
         /// </summary>
         /// <param name="table">The table.</param>
-        /// <param name="schemaColumns"></param>
+        /// <param name="schemaColumns">The schema columns.</param>
         public void DlTagDetails(string table, List<ISchemaItem> schemaColumns =null)
         {
             var columns = schemaColumns ?? GetColumns(table);
@@ -186,7 +191,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             AppendText(Indent(4) + "</dl>");
         }
 
-        /// <summary>Dls the tag details.</summary>
+        /// <summary>
+        /// Dls the tag details.
+        /// </summary>
         /// <param name="table">The table.</param>
         /// <param name="columns">The columns.</param>
         public void DlTagDetails(string table, List<string> columns)
@@ -207,6 +214,10 @@ namespace ZeraSystems.CodeNanite.Expansion
             AppendText(Indent(4) + "</dl>");
         }
 
+        /// <summary>
+        /// Dls the tag detail.
+        /// </summary>
+        /// <param name="column">The column.</param>
         private void DlTagDetail(ISchemaItem column)
         {
             if (column == null)
@@ -245,6 +256,12 @@ namespace ZeraSystems.CodeNanite.Expansion
         }
 
 
+        /// <summary>
+        /// Forms the group.
+        /// </summary>
+        /// <param name="column">The column.</param>
+        /// <param name="table">The table.</param>
+        /// <param name="indent">The indent.</param>
         public void FormGroup(string column, string table, int indent = 12)
         {
             var item = SchemaItem()
@@ -356,7 +373,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             AppendText(Indent(indent + 4) + "<span asp-validation-for=" + AddQuotes(column) + " class=" + AddQuotes("text-danger") + span);
         }
 
-        /// <summary>Gets a CSHTML header.</summary>
+        /// <summary>
+        /// Gets a CSHTML header.
+        /// </summary>
         /// <param name="headerType">Type of the header.</param>
         /// <param name="table">The table.</param>
         /// <param name="nameSpace">The name space.</param>
@@ -377,7 +396,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             return BuildSnippet();
         }
 
-        /// <summary>Gets the HTML string.</summary>
+        /// <summary>
+        /// Gets the HTML string.
+        /// </summary>
         /// <param name="leftString">The left string.</param>
         /// <param name="rightString">The right string.</param>
         /// <param name="tag">The tag.</param>
@@ -387,7 +408,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             return (leftString + "=" + rightString.AddQuotes()).Tag(tag);
         }
 
-        /// <summary>Gets the HTML string.</summary>
+        /// <summary>
+        /// Gets the HTML string.
+        /// </summary>
         /// <param name="leftString">The left string.</param>
         /// <param name="rightString">The right string.</param>
         /// <returns>System.String.</returns>
@@ -396,7 +419,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             return (leftString + "=" + rightString.AddQuotes());
         }
 
-        /// <summary>Gets the HTML string.</summary>
+        /// <summary>
+        /// Gets the HTML string.
+        /// </summary>
         /// <param name="leftString">The left string.</param>
         /// <param name="rightString">The right string.</param>
         /// <param name="leftString2">The left string2.</param>
@@ -407,7 +432,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             return ( GetHtmlString(leftString, rightString) + " " + GetHtmlString(leftString2, rightString2));
         }
 
-        /// <summary>Gets the HTML string.</summary>
+        /// <summary>
+        /// Gets the HTML string.
+        /// </summary>
         /// <param name="leftString">The left string.</param>
         /// <param name="rightString">The right string.</param>
         /// <param name="leftString2">The left string2.</param>
@@ -420,7 +447,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             return (GetHtmlString(leftString, rightString,leftString2,rightString2) + " " + GetHtmlString(leftString3, rightString3));
         }
 
-        /// <summary>Gets the HTML string.</summary>
+        /// <summary>
+        /// Gets the HTML string.
+        /// </summary>
         /// <param name="leftString">The left string.</param>
         /// <param name="rightString">The right string.</param>
         /// <param name="leftString2">The left string2.</param>
@@ -435,7 +464,9 @@ namespace ZeraSystems.CodeNanite.Expansion
             return (GetHtmlString(leftString, rightString, leftString2, rightString2) + " " + GetHtmlString(leftString3, rightString3, leftString4, rightString4));
         }
 
-        /// <summary>Gets the heading.</summary>
+        /// <summary>
+        /// Gets the heading.
+        /// </summary>
         /// <param name="column">The column.</param>
         /// <param name="isPlain">if set to <c>true</c> [is plain].</param>
         /// <returns>System.String.</returns>
@@ -455,7 +486,9 @@ namespace ZeraSystems.CodeNanite.Expansion
 
         }
 
-        /// <summary>Returns a list of HTML columns.</summary>
+        /// <summary>
+        /// Returns a list of HTML columns.
+        /// </summary>
         /// <param name="schemaItems">The schema items.</param>
         /// <param name="isPlain">if set to <c>true</c> [is plain].</param>
         /// <returns>List&lt;IHtmlColumns&gt;.</returns>
